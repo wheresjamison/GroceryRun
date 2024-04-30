@@ -40,7 +40,21 @@ public class ItemGrid : MonoBehaviour
     public InventoryItem PickUpItem(int x, int y)
     {
         InventoryItem toReturn = inventoryItemSlot[x, y];
-        inventoryItemSlot[x, y] = null;
+
+        if (toReturn == null)
+        {
+            return null;
+        }
+
+        for (int ix = 0; ix < toReturn.itemData.width; ix++)
+        {
+            for(int iy = 0; iy < toReturn.itemData.height; iy++)
+            {
+                inventoryItemSlot[toReturn.onGridPositionX + ix, toReturn.onGridPositionY + iy] = null;
+            }
+        }
+        
+        //inventoryItemSlot[x, y] = null;
         return toReturn;
     }
 
@@ -66,12 +80,53 @@ public class ItemGrid : MonoBehaviour
     {
         RectTransform rectTransform = inventoryItem.GetComponent<RectTransform>();
         rectTransform.SetParent(this.rectTransform);
-        inventoryItemSlot[xPos, yPos] = inventoryItem;
+        
+        for (int x = 0; x < inventoryItem.itemData.width; x++)
+        {
+            for (int y = 0; y < inventoryItem.itemData.height; y++)
+            {
+                inventoryItemSlot[xPos, yPos +y] = inventoryItem;
+
+            }
+        }
+
+        inventoryItem.onGridPositionX = xPos;
+        inventoryItem.onGridPositionY = yPos;
 
         Vector2 position = new Vector2();
-        position.x = xPos * tileSizeWidth + tileSizeWidth / 2;
-        position.y = -(yPos * tileSizeHeight + tileSizeHeight / 2);
+        position.x = xPos * tileSizeWidth + tileSizeWidth * inventoryItem.itemData.width / 2;
+        position.y = -(yPos * tileSizeHeight + tileSizeHeight * inventoryItem.itemData.height  / 2);
 
         rectTransform.localPosition = position;
+    }
+
+    bool PositionCheck(int xPos, int yPos)
+    {
+        if(xPos < 0 || yPos < 0)
+        {
+            return false;
+        }
+        if (xPos >= gridSizeWidth || yPos >= gridSizeHeight)
+        {
+            return false;
+        }
+        return true;
+    }
+    bool BoundryCheck(int xPos, int yPos, int width, int height)
+    {
+        if(PositionCheck(xPos,yPos) == false)
+        {
+            return false;
+        }
+
+        xPos += width;
+        yPos += height;
+
+        if(PositionCheck(xPos,yPos) == false)
+        {
+            return false
+        }
+
+        return true;
     }
 }
