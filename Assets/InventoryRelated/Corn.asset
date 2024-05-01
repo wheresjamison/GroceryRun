@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828118ea80924cf40a010ac6e57989b4, type: 3}
   m_Name: Corn
   m_EditorClassIdentifier: 
+  width: 1
+  height: 3
   itemIcon: {fileID: 21300000, guid: dacdd380ba9fd9a40b361e097d4637ba, type: 3}

@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828118ea80924cf40a010ac6e57989b4, type: 3}
   m_Name: Eggs
   m_EditorClassIdentifier: 
+  width: 2
+  height: 1
   itemIcon: {fileID: 21300000, guid: 7147837133bbd824dbc70533680a0a78, type: 3}

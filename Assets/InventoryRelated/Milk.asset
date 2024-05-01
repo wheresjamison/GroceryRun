@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828118ea80924cf40a010ac6e57989b4, type: 3}
   m_Name: Milk
   m_EditorClassIdentifier: 
+  width: 1
+  height: 2
   itemIcon: {fileID: 21300000, guid: f13e4b0b45bb4b048896103c534fb1bb, type: 3}

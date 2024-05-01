@@ -13,9 +13,9 @@ public class InventoryItem : MonoBehaviour
         {
             if (rotated == false)
             {
-                return HEIGHT;
+                return itemData.height;
             }
-            return WIDTH;
+            return itemData.width;
         }
     }
 
@@ -25,9 +25,9 @@ public class InventoryItem : MonoBehaviour
         {
             if (rotated == false)
             {
-                return WIDTH;
+                return itemData.width;
             }
-            return HEIGHT;
+            return itemData.height;
         }
     }
 
@@ -41,8 +41,8 @@ public class InventoryItem : MonoBehaviour
         this.itemData = itemData;
         GetComponent<Image>().sprite = itemData.itemIcon;
         Vector2 size = new Vector2();
-        size.x = WIDTH * ItemGrid.tileSizeWidth;
-        size.y = HEIGHT * ItemGrid.tileSizeHeight;
+        size.x = this.itemData.width * ItemGrid.tileSizeWidth;
+        size.y = this.itemData.height * ItemGrid.tileSizeHeight;
 
         GetComponent<RectTransform>().sizeDelta = size;
     }
