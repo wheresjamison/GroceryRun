@@ -5856,6 +5856,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: {fileID: 1404476351}
+  inventoryWindow: {fileID: 627747488}
+  minimapWindow: {fileID: 1937568424}
+  questWindow: {fileID: 1758177968}
 --- !u!114 &434468223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5903,6 +5906,9 @@ MonoBehaviour:
   speed: 5
   gravity: -9.8
   jumpHeight: 3
+  mapIsEnabled: 0
+  inventoryIsEnabled: 0
+  questIsEnabled: 0
 --- !u!114 &434468230
 MonoBehaviour:
   m_ObjectHideFlags: 0

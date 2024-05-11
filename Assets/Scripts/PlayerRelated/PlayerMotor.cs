@@ -12,10 +12,18 @@ public class PlayerMotor : MonoBehaviour
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
 
+    //ui related
+    private PlayerUI ui;
+    public bool mapIsEnabled;
+    public bool inventoryIsEnabled;
+    public bool questIsEnabled;
+
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        ui = GetComponent<PlayerUI>();
     }
 
     // Update is called once per frame
@@ -46,4 +54,42 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
+    public void ToggleInventory()
+    {
+        if (inventoryIsEnabled)
+        {
+            ui.OpenInventory();
+        }
+        else
+        {
+            ui.CloseInventory();
+        }
+        inventoryIsEnabled = !inventoryIsEnabled;
+    }
+
+    public void ToggleMap()
+    {
+        if (mapIsEnabled)
+        {
+            ui.OpenMinimap();
+        }
+        else
+        {
+            ui.CloseMinimap();
+        }
+        mapIsEnabled = !mapIsEnabled;
+    }
+
+    public void ToggleQuest()
+    {
+        if (questIsEnabled)
+        {
+            ui.OpenQuest();
+        }
+        else
+        {
+            ui.CloseQuest();
+        }
+        questIsEnabled = !questIsEnabled;
+    }
 }

@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-
     private PlayerInput playerInput;
     public PlayerInput.OnFootActions onFoot;
     
     private PlayerMotor motor;
     private PlayerLook look;
+    private PlayerUI ui;
 
     // Start is called before the first frame update
     void Awake()
@@ -19,7 +19,12 @@ public class InputManager : MonoBehaviour
         onFoot = playerInput.OnFoot;
         motor = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
+        ui = GetComponent<PlayerUI>();
         onFoot.Jump.performed += ctx => motor.Jump();
+        onFoot.Map.performed += ctx => motor.ToggleMap();
+        onFoot.Inventory.performed += ctx => motor.ToggleInventory();
+        onFoot.Quest.performed += ctx => motor.ToggleQuest();
+
         //learn events, this is the syntax for events
 
     }
