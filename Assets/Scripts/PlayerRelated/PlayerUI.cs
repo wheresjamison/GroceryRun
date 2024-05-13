@@ -48,4 +48,16 @@ public class PlayerUI : MonoBehaviour
     {
         questWindow.SetActive(false);
     }
+
+    public void ShowCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void HideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 }

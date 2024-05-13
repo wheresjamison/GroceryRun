@@ -32,13 +32,21 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //tell playermotor to move using the input from player action
-        motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
+        //if in UI. it disables playerlook
+        if (motor.inUI == false)
+        {
+            //tell playermotor to move using the input from player action
+            motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
+        }
     }
 
     private void LateUpdate()
     {
-        look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
+        //if in UI. it disables playerlook
+        if (motor.inUI == false)
+        {
+            look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
+        }
     }
 
     private void OnEnable()

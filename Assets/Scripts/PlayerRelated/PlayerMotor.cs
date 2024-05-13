@@ -17,7 +17,7 @@ public class PlayerMotor : MonoBehaviour
     public bool mapIsEnabled;
     public bool inventoryIsEnabled;
     public bool questIsEnabled;
-
+    public bool inUI;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,9 @@ public class PlayerMotor : MonoBehaviour
     void Update()
     {
         isGrounded = controller.isGrounded;
+        ToggleCursor();
     }
+
     public void ProcessMove(Vector2 input)
     {
         Vector3 moveDirection = Vector3.zero;
@@ -91,5 +93,21 @@ public class PlayerMotor : MonoBehaviour
             ui.CloseQuest();
         }
         questIsEnabled = !questIsEnabled;
+    }
+
+    public void ToggleCursor()
+    {
+        //checks if windows are all closed. if statements didnt work.
+        //for some reason, these need to be set to true.
+        if (inventoryIsEnabled == true && mapIsEnabled == true && questIsEnabled == true)
+        {
+            ui.HideCursor();
+            inUI = false;
+        } else
+        {
+            ui.ShowCursor();
+            inUI = true;
+        }
+        
     }
 }

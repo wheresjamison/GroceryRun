@@ -5909,6 +5909,7 @@ MonoBehaviour:
   mapIsEnabled: 0
   inventoryIsEnabled: 0
   questIsEnabled: 0
+  inUI: 0
 --- !u!114 &434468230
 MonoBehaviour:
   m_ObjectHideFlags: 0
