@@ -16,5 +16,4 @@ public abstract class Interactable : MonoBehaviour
     {
         //no code here, just a template function to be written in by subclasses
     }
-    
 }

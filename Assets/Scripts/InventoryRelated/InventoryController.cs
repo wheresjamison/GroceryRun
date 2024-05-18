@@ -7,6 +7,8 @@ public class InventoryController : MonoBehaviour
     [HideInInspector]
     public ItemGrid selectedItemGrid;
 
+    [SerializeField] public GameObject inventoryWindow;
+
     public ItemGrid SelectedItemGrid {
         get => selectedItemGrid; 
         set
@@ -36,39 +38,47 @@ public class InventoryController : MonoBehaviour
     private void Update()
     {
 
-        ItemIconDrag();
-
-        if (Input.GetKeyDown(KeyCode.Q))
+        //checks if the inventory is enabled from the playermotor to use binds.
+        if (inventoryWindow.activeSelf)
         {
-            if ( selectedItem == null)
+
+            ItemIconDrag();
+
+            //for testing
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                CreateRandomItem();
+                if (selectedItem == null)
+                {
+                    CreateRandomItem();
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            InsertRandomItem();
-        }
+            //for testing
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                InsertRandomItem();
+            }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RotateItem();
-        }
+            //actually usable
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RotateItem();
+            }
 
-        //exit gate
-        if (selectedItemGrid == null)
-        {
-            inventoryHighlight.Show(false);
-            return;
-        }
+            //exit gate
+            if (selectedItemGrid == null)
+            {
+                inventoryHighlight.Show(false);
+                return;
+            }
 
-        HandleHighlight();
+            HandleHighlight();
 
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            LeftMouseButtonPress();
+            //place item
+            if (Input.GetMouseButtonDown(0))
+            {
+                LeftMouseButtonPress();
+            }
         }
     }
 
@@ -97,7 +107,7 @@ public class InventoryController : MonoBehaviour
 
         if (posOnGrid == null) { return;  }
 
-        SelectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
+        SelectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x ,posOnGrid.Value.y);
     }
     
     private void HandleHighlight()

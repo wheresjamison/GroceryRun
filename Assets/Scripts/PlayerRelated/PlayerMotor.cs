@@ -99,7 +99,7 @@ public class PlayerMotor : MonoBehaviour
     {
         //checks if windows are all closed. if statements didnt work.
         //for some reason, these need to be set to true.
-        if (inventoryIsEnabled == true && mapIsEnabled == true && questIsEnabled == true)
+        if (inventoryIsEnabled == true && questIsEnabled == true)
         {
             ui.HideCursor();
             inUI = false;

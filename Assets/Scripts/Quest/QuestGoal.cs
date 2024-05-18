@@ -14,7 +14,7 @@ public class QuestGoal : MonoBehaviour
     {
         return (currentAmount >= requiredAmount);
     }
-
+        
     public void ItemOfOrderRetrieved()
     {
         if (goalType == GoalType.Small)
