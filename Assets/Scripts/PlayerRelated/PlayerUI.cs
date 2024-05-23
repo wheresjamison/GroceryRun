@@ -5,48 +5,81 @@ using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI promptText;
+    [SerializeField] private TextMeshProUGUI promptText;
+    [SerializeField] public GameObject phone;
+    [SerializeField] public GameObject phoneInProgress;
+    [SerializeField] public GameObject phoneObjective;
 
-    [SerializeField] public GameObject inventoryWindow;
-    [SerializeField] public GameObject minimapWindow;
-    [SerializeField] public GameObject questWindow;
+    [SerializeField] public GameObject phonePause;
+    [SerializeField] public GameObject resumeButton;
+    [SerializeField] public GameObject helpButton;
+    [SerializeField] public GameObject quitButton;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public GameObject phoneStart;
+    [SerializeField] public GameObject clockInButton;
+
+    public bool inUI;
+
+    public void start()
     {
-        
+        inUI = true;
     }
 
-    // Update is called once per frame
     public void UpdateText(string promptMessage)
     {
         promptText.text = promptMessage;
     }
 
-    public void OpenInventory()
+    public void OpenPhone()
     {
-        inventoryWindow.SetActive(true);
+        phone.SetActive(true);
     }
-    public void CloseInventory()
+    public void ClosePhone()
     {
-        inventoryWindow.SetActive(false);
+        phone.SetActive(false);
     }
-    public void OpenMinimap()
+
+    public void phoneMapOpen()
     {
-        minimapWindow.SetActive(true);
+        phoneInProgress.SetActive(true);
     }
-    public void CloseMinimap()
+    public void phoneMapClose()
     {
-        minimapWindow.SetActive(false);
+        phoneInProgress.SetActive(true);
     }
-    public void OpenQuest()
+
+    public void OpenObjective()
     {
-        questWindow.SetActive(true);
+        phoneObjective.SetActive(true);
     }
-    public void CloseQuest()
+    public void CloseObjective()
     {
-        questWindow.SetActive(false);
+        phoneObjective.SetActive(false);
+    }
+    public void Pause()
+    {
+        phonePause.SetActive(true);
+        resumeButton.SetActive(true);
+        helpButton.SetActive(true);
+        quitButton.SetActive(true);
+    }
+    public void UnPause()
+    {
+        phonePause.SetActive(false);
+        resumeButton.SetActive(false);
+        helpButton.SetActive(false);
+        quitButton.SetActive(false);
+    }
+
+    public void StartMenu()
+    {
+        phoneStart.SetActive(true);
+        clockInButton.SetActive(true);
+    }
+    public void CloseStart()
+    {
+        phoneStart.SetActive(false);
+        clockInButton.SetActive(false);
     }
 
     public void ShowCursor()
@@ -60,4 +93,7 @@ public class PlayerUI : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    //inUI = false;     
+
 }

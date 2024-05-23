@@ -73,7 +73,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Quest"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""0860e818-be8c-4b28-a130-d10fbd525217"",
                     ""expectedControlType"": ""Button"",
@@ -82,7 +82,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Inventory"",
+                    ""name"": ""Objectives"",
                     ""type"": ""Button"",
                     ""id"": ""f8910151-7120-47a5-871c-2ba82e4aa7d3"",
                     ""expectedControlType"": ""Button"",
@@ -183,7 +183,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7fdd179e-5ad3-4955-9d45-9458d844cd7d"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -194,22 +194,22 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5b5f31dd-8246-4e04-96e5-48d74ffa7632"",
-                    ""path"": ""<Keyboard>/2"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Quest"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""b3c501ca-5521-4d49-8ae1-0d83e19a4267"",
-                    ""path"": ""<Keyboard>/3"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Inventory"",
+                    ""action"": ""Objectives"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -741,8 +741,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
         m_OnFoot_Map = m_OnFoot.FindAction("Map", throwIfNotFound: true);
-        m_OnFoot_Quest = m_OnFoot.FindAction("Quest", throwIfNotFound: true);
-        m_OnFoot_Inventory = m_OnFoot.FindAction("Inventory", throwIfNotFound: true);
+        m_OnFoot_Pause = m_OnFoot.FindAction("Pause", throwIfNotFound: true);
+        m_OnFoot_Objectives = m_OnFoot.FindAction("Objectives", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -821,8 +821,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Look;
     private readonly InputAction m_OnFoot_Interact;
     private readonly InputAction m_OnFoot_Map;
-    private readonly InputAction m_OnFoot_Quest;
-    private readonly InputAction m_OnFoot_Inventory;
+    private readonly InputAction m_OnFoot_Pause;
+    private readonly InputAction m_OnFoot_Objectives;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -832,8 +832,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_OnFoot_Look;
         public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
         public InputAction @Map => m_Wrapper.m_OnFoot_Map;
-        public InputAction @Quest => m_Wrapper.m_OnFoot_Quest;
-        public InputAction @Inventory => m_Wrapper.m_OnFoot_Inventory;
+        public InputAction @Pause => m_Wrapper.m_OnFoot_Pause;
+        public InputAction @Objectives => m_Wrapper.m_OnFoot_Objectives;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -858,12 +858,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Map.started += instance.OnMap;
             @Map.performed += instance.OnMap;
             @Map.canceled += instance.OnMap;
-            @Quest.started += instance.OnQuest;
-            @Quest.performed += instance.OnQuest;
-            @Quest.canceled += instance.OnQuest;
-            @Inventory.started += instance.OnInventory;
-            @Inventory.performed += instance.OnInventory;
-            @Inventory.canceled += instance.OnInventory;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+            @Objectives.started += instance.OnObjectives;
+            @Objectives.performed += instance.OnObjectives;
+            @Objectives.canceled += instance.OnObjectives;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -883,12 +883,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Map.started -= instance.OnMap;
             @Map.performed -= instance.OnMap;
             @Map.canceled -= instance.OnMap;
-            @Quest.started -= instance.OnQuest;
-            @Quest.performed -= instance.OnQuest;
-            @Quest.canceled -= instance.OnQuest;
-            @Inventory.started -= instance.OnInventory;
-            @Inventory.performed -= instance.OnInventory;
-            @Inventory.canceled -= instance.OnInventory;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+            @Objectives.started -= instance.OnObjectives;
+            @Objectives.performed -= instance.OnObjectives;
+            @Objectives.canceled -= instance.OnObjectives;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -1031,8 +1031,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);
-        void OnQuest(InputAction.CallbackContext context);
-        void OnInventory(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnObjectives(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -35,8 +35,6 @@ public class ObjectiveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetAllToZero();
-        SetAllToFalse();
         orderIsReadyForDelivery = false;
         gameIsActive = true;
     }
@@ -199,10 +197,12 @@ public class ObjectiveManager : MonoBehaviour
         if (houseNumber == quest.assignedAddressIndex)
         {
             correctHouse = true;
+            Debug.Log("Correct House");
         }
         else
         {
             correctHouse = false;
+            Debug.Log("Incorrect House");
         }
     }
     public void DeliverToCustomer()
@@ -210,6 +210,7 @@ public class ObjectiveManager : MonoBehaviour
         if (correctHouse)
         {
             win = true;
+            Debug.Log("You have won");
             //pause time and give player reward.
         }
     }

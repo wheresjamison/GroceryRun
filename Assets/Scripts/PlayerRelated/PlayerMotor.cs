@@ -11,15 +11,8 @@ public class PlayerMotor : MonoBehaviour
     private bool isGrounded;
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
-
-    //ui related
     private PlayerUI ui;
-    public bool mapIsEnabled;
-    public bool inventoryIsEnabled;
-    public bool questIsEnabled;
-    public bool inUI;
 
-    // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -30,7 +23,6 @@ public class PlayerMotor : MonoBehaviour
     void Update()
     {
         isGrounded = controller.isGrounded;
-        ToggleCursor();
     }
 
     public void ProcessMove(Vector2 input)
@@ -44,8 +36,9 @@ public class PlayerMotor : MonoBehaviour
         {
             playerVelocity.y = -2f;
         }
-       
+
         controller.Move(playerVelocity * Time.deltaTime);
+        //Debug.Log("Process Move is moving the player");
     }
 
     public void Jump()
@@ -56,58 +49,64 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
-    public void ToggleInventory()
-    {
-        if (inventoryIsEnabled)
-        {
-            ui.OpenInventory();
-        }
-        else
-        {
-            ui.CloseInventory();
-        }
-        inventoryIsEnabled = !inventoryIsEnabled;
-    }
-
+    private bool mapIsEnabled;
     public void ToggleMap()
     {
+        ui.HideCursor();
         if (mapIsEnabled)
         {
-            ui.OpenMinimap();
+            ui.OpenPhone();
         }
         else
         {
-            ui.CloseMinimap();
+            ui.ClosePhone();
         }
         mapIsEnabled = !mapIsEnabled;
     }
 
-    public void ToggleQuest()
+    private bool gamePaused;
+    public void TogglePause()
     {
-        if (questIsEnabled)
+        if (gamePaused)
         {
-            ui.OpenQuest();
+            ui.OpenPhone();
+            ui.Pause();
+            ui.ShowCursor();
         }
         else
         {
-            ui.CloseQuest();
+            ui.HideCursor();
+            ui.UnPause();
         }
-        questIsEnabled = !questIsEnabled;
+        gamePaused = !gamePaused;
+    }
+    private bool objectiveIsEnalbed;
+    public void ToggleObjective()
+    {
+        if (objectiveIsEnalbed)
+        {
+            ui.OpenPhone();
+            ui.OpenObjective();
+        }
+        else
+        {
+            ui.CloseObjective();
+            ui.ClosePhone();
+        }
     }
 
-    public void ToggleCursor()
+    public void CloseStart()
     {
-        //checks if windows are all closed. if statements didnt work.
-        //for some reason, these need to be set to true.
-        if (inventoryIsEnabled == true && questIsEnabled == true)
-        {
-            ui.HideCursor();
-            inUI = false;
-        } else
-        {
-            ui.ShowCursor();
-            inUI = true;
-        }
-        
+        ui.CloseStart();
+        ui.ClosePhone();
+        ui.HideCursor();
     }
+
+    public void OpenStart()
+    {
+        ui.OpenPhone();
+        ui.StartMenu();
+        ui.ShowCursor();
+    }
+
 }
