@@ -11,12 +11,10 @@ public class PlayerMotor : MonoBehaviour
     private bool isGrounded;
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
-    private PlayerUI ui;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        ui = GetComponent<PlayerUI>();
     }
 
     // Update is called once per frame
@@ -36,9 +34,7 @@ public class PlayerMotor : MonoBehaviour
         {
             playerVelocity.y = -2f;
         }
-
         controller.Move(playerVelocity * Time.deltaTime);
-        //Debug.Log("Process Move is moving the player");
     }
 
     public void Jump()
@@ -48,65 +44,4 @@ public class PlayerMotor : MonoBehaviour
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
         }
     }
-
-    private bool mapIsEnabled;
-    public void ToggleMap()
-    {
-        ui.HideCursor();
-        if (mapIsEnabled)
-        {
-            ui.OpenPhone();
-        }
-        else
-        {
-            ui.ClosePhone();
-        }
-        mapIsEnabled = !mapIsEnabled;
-    }
-
-    private bool gamePaused;
-    public void TogglePause()
-    {
-        if (gamePaused)
-        {
-            ui.OpenPhone();
-            ui.Pause();
-            ui.ShowCursor();
-        }
-        else
-        {
-            ui.HideCursor();
-            ui.UnPause();
-        }
-        gamePaused = !gamePaused;
-    }
-    private bool objectiveIsEnalbed;
-    public void ToggleObjective()
-    {
-        if (objectiveIsEnalbed)
-        {
-            ui.OpenPhone();
-            ui.OpenObjective();
-        }
-        else
-        {
-            ui.CloseObjective();
-            ui.ClosePhone();
-        }
-    }
-
-    public void CloseStart()
-    {
-        ui.CloseStart();
-        ui.ClosePhone();
-        ui.HideCursor();
-    }
-
-    public void OpenStart()
-    {
-        ui.OpenPhone();
-        ui.StartMenu();
-        ui.ShowCursor();
-    }
-
 }

@@ -7,12 +7,11 @@ public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
     public PlayerInput.OnFootActions onFoot;
-
     private PlayerMotor motor;
     private PlayerLook look;
     private PlayerUI ui;
+    public bool inUI;
 
-    // Start is called before the first frame update
     void Awake()
     {
         playerInput = new PlayerInput();
@@ -21,16 +20,19 @@ public class InputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
         ui = GetComponent<PlayerUI>();
         onFoot.Jump.performed += ctx => motor.Jump();
-        onFoot.Map.performed += ctx => motor.ToggleMap();
-        onFoot.Pause.performed += ctx => motor.TogglePause();
-        onFoot.Objectives.performed += ctx => motor.ToggleObjective();
+        //toggle ui
+        onFoot.Map.performed += ctx => ui.ToggleMap();
+        onFoot.Pause.performed += ctx => ui.TogglePause();
+        onFoot.Objectives.performed += ctx => ui.ToggleObjective();
+
+        ui.StartMenu();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         //if in UI. it disables playerlook
-        if (ui.inUI == false)
+        if (inUI == false)
         {
             //tell playermotor to move using the input from player action
             motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
@@ -40,7 +42,7 @@ public class InputManager : MonoBehaviour
     private void LateUpdate()
     {
         //if in UI. it disables playerlook
-        if (ui.inUI == false)
+        if (inUI == false)
         {
             look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
         }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObjectiveManager : MonoBehaviour
 {
     public bool gameIsActive;
-
     public int numApples;
     public int numBananas;
     public int numWatermelons;
@@ -25,11 +24,9 @@ public class ObjectiveManager : MonoBehaviour
     public bool cheeseComplete;
     public bool eggsComplete;
     public bool milkComplete;
-
     public bool orderIsReadyForDelivery;
     public bool correctHouse;
     public bool win;
-
     public QuestManager quest;
 
     // Start is called before the first frame update
@@ -190,8 +187,6 @@ public class ObjectiveManager : MonoBehaviour
             orderIsReadyForDelivery = false;
         }
     }
-
-    //raycast no click
     public void CheckHouse(int houseNumber)
     {
         if (houseNumber == quest.assignedAddressIndex)

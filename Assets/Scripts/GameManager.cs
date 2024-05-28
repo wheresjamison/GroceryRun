@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
+        ui = GetComponent<PlayerUI>();
     }
 
     // Update is called once per frame

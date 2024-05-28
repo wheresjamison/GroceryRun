@@ -7,18 +7,17 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-
-    private PlayerMotor motor;
     private PlayerUI ui;
     private ObjectiveManager objective;
     private QuestManager quest;
 
     public void Start()
     {
-        motor = GetComponent<PlayerMotor>();
         ui = GetComponent<PlayerUI>();
         objective = GetComponent<ObjectiveManager>();
         quest = GetComponent<QuestManager>();
+
+        Debug.Log("UI, Objective, Quest : " + ui + " " + objective + " " + quest + ".");
     }
 
     public void StartUpSequence()
@@ -27,16 +26,14 @@ public class ButtonManager : MonoBehaviour
         ui.StartMenu();
         objective.SetAllToFalse();
         objective.SetAllToZero();
-        ui.ShowCursor();
         Debug.Log("Game has been started");
     }
 
     public void StartGame()
     {
         //closes the start menu and assigs house and location
-        ui.HideCursor();
-        ui.CloseStart();
-        ui.ClosePhone();
+        ui.CloseStart(); // <------------------------------------------- look here ----- ERROR OCCURS HERE FOR NULLEXCEPTION . I cant get this to fucking work 
+        //I wonder sdthdf tdf thitit sdit ithsld kj ... ethisdt .t
         quest.GenerateHouse();
         quest.GenerateOrder();
         Debug.Log("StartGame has been pressed");
@@ -45,9 +42,7 @@ public class ButtonManager : MonoBehaviour
     public void Resume()
     {
         //closes pause menu
-        ui.HideCursor();
         ui.UnPause();
-        ui.ClosePhone();
         Debug.Log("Resume has been pressed");
     }
 
