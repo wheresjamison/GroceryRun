@@ -67,6 +67,23 @@ public class PlayerUI : MonoBehaviour
         input.inUI = inUI;
     }
 
+    public void OpenTopScreenUI()
+    {
+        topScreen.SetActive(true);
+    }
+    public void CloseTopScreenUI()
+    {
+        topScreen.SetActive(false);
+    }
+    public void OpenHelpUI()
+    {
+        helpUI.SetActive(true);
+    }
+    public void CloseHelpUI()
+    {
+        helpUI.SetActive(false);
+    }
+
     public void OpenPhone()
     {
         phone.SetActive(true);

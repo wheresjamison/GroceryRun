@@ -9,11 +9,14 @@ public class DoorManager : Interactable
     [SerializeField] private GameObject door;
     private QuestManager quest;
     private Checker check;
+    private GameManager game;
 
     // Start is called before the first frame update
     void Start()
     {
         quest = FindAnyObjectByType<QuestManager>();
+        check = FindAnyObjectByType<Checker>();
+        game = FindAnyObjectByType<GameManager>();
     }
 
     // Update is called once per frame
@@ -27,6 +30,9 @@ public class DoorManager : Interactable
     {
         Debug.Log("Interacted with " + door.name);
         Debug.Log("Door index is " + doorIndex);
+        check.CheckIfCorrectDoor(doorIndex);
+        check.CheckOrder();
         check.CheckWin();
+        game.Delivered();
     }
 }

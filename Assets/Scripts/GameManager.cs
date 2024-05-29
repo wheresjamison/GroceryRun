@@ -32,19 +32,18 @@ public class GameManager : MonoBehaviour
     {
         if (gameIsActive)
         {
-            ui.topScreen.SetActive(false);
-            ui.helpUI.SetActive(true);
+            ui.CloseTopScreenUI();
+            ui.OpenHelpUI();
             yourScore = 0;
             ui.winText.text = winText[0];
         }
         else
         {
-            ui.topScreen.SetActive(true);
-            ui.helpUI.SetActive(false);
+            ui.OpenTopScreenUI();
+            ui.CloseHelpUI();
             yourScore = checker.currentScore;
             ui.scoreNumber.text = yourScore.ToString();
             ui.winText.text = winText[checker.index];
-            Delivered();
         }
     }
 

@@ -9,28 +9,24 @@ public class Checker : MonoBehaviour
     private ObjectiveManager objective;
     public bool correctDoor;
     public bool correctOrder;
-    public int doorIndex;
     public int currentScore;
     public int index;
     private GameManager game;
-
+    private PlayerUI ui;
     public void Start()
     {
         quest = FindAnyObjectByType<QuestManager>();
         objective = FindAnyObjectByType<ObjectiveManager>();
         game = FindAnyObjectByType<GameManager>();
+        ui = FindAnyObjectByType<PlayerUI>();
         currentScore = 0;
-    }
-
-    public void Update()
-    {
-
+        correctDoor = false;
+        correctOrder = false;
     }
 
     public void CheckWin()
     {
-        CheckIfCorrectDoor();
-        CheckOrder();
+        //CheckOrder();
         if (correctDoor && correctOrder)
         {
             index = 1;
@@ -48,14 +44,19 @@ public class Checker : MonoBehaviour
             index = 3;
         }
         game.gameIsActive = false;
+        ui.StartMenu();
+        objective.SetAllToZero();
     }
 
-
-    public void CheckIfCorrectDoor()
+    public void CheckIfCorrectDoor(int doorIndex)
     {
         if (quest.assignedAddressIndex == doorIndex)
         {
             correctDoor = true;
+        }
+        else
+        {
+            correctDoor = false;
         }
     }
 

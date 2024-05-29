@@ -34,6 +34,8 @@ public class ButtonManager : MonoBehaviour
     {
         //closes the start menu and assigs house and location
         ui.CloseStart(); // <------------------------------------------- look here ----- ERROR OCCURS HERE FOR NULLEXCEPTION . I cant get this to fucking work 
+        ui.CloseTopScreenUI();
+        ui.OpenHelpUI();
         game.Recieved();
         quest.GenerateHouse();
         quest.GenerateOrder();
