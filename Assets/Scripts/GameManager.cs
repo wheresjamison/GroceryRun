@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,34 +46,51 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    void CreateText()
+    {
+        string path = Application.dataPath + "/ioComm.txt";
+        if (!File.Exists(path))
+        {
+            File.WriteAllText(path, "IOWriter \n\n");
+        }
+        string content = "GroceryRun: " + status + "\n";
+        File.AppendAllText(path, content);
+    }
     public void Recieved()
     {
         status = statusArray[1];
         Debug.Log(status);
+        CreateText();
     }
     public void AtStore()
     {
         status = statusArray[0];
         Debug.Log(status);
+        CreateText();
     }
     public void Shopping()
     {
         status = statusArray[2];
         Debug.Log(status);
+        CreateText();
     }
     public void OTW()
     {
         status = statusArray[3];
         Debug.Log(status);
+        CreateText();
     }
     public void Delivered()
     {
         status = statusArray[4];
         Debug.Log(status);
+        CreateText();
     }
     public void GivenUp()
     {
         status = statusArray[5];
         Debug.Log(status);
+        CreateText();
     }
 }
