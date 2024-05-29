@@ -12,8 +12,6 @@ public class PlayerInteract : MonoBehaviour
     private LayerMask mask;
     private PlayerUI playerUI;
     private InputManager inputManager;
-
-
     // Start is called before the first frame update
     void Start()
     {

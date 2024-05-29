@@ -8,6 +8,12 @@ public class PortalTeleporter : MonoBehaviour
     public Transform receiver;
     private bool playerIsOverlapping = false;
 
+    private GameManager game;
+    public void Start()
+    {
+        game = FindAnyObjectByType<GameManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -15,7 +21,7 @@ public class PortalTeleporter : MonoBehaviour
         {
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
-            if(dotProduct < 0f)
+            if (dotProduct < 0f)
             {
                 player.GetComponent<CharacterController>().enabled = false;
 
@@ -42,9 +48,10 @@ public class PortalTeleporter : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             playerIsOverlapping = false;
         }
+        game.OTW();
     }
 }

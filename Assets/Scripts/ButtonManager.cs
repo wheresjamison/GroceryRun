@@ -9,12 +9,14 @@ public class ButtonManager : MonoBehaviour
     private PlayerUI ui;
     private ObjectiveManager objective;
     private QuestManager quest;
+    private GameManager game;
 
     public void Start()
     {
         ui = GetComponent<PlayerUI>();
         objective = GetComponent<ObjectiveManager>();
         quest = GetComponent<QuestManager>();
+        game = FindAnyObjectByType<GameManager>();
 
         Debug.Log("UI, Objective, Quest : " + ui + " " + objective + " " + quest + ".");
     }
@@ -32,6 +34,7 @@ public class ButtonManager : MonoBehaviour
     {
         //closes the start menu and assigs house and location
         ui.CloseStart(); // <------------------------------------------- look here ----- ERROR OCCURS HERE FOR NULLEXCEPTION . I cant get this to fucking work 
+        game.Recieved();
         quest.GenerateHouse();
         quest.GenerateOrder();
         Debug.Log("StartGame has been pressed");
@@ -57,5 +60,6 @@ public class ButtonManager : MonoBehaviour
         ui.StartMenu();
         quest.ResetItemsNeededToZero();
         Debug.Log("Quit has been pressed");
+        game.GivenUp();
     }
 }

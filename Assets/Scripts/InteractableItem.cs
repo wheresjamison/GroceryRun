@@ -7,10 +7,12 @@ public class InteractableItem : Interactable
 
     public GameObject item;
     private ObjectiveManager objective;
+    private GameManager game;
 
     public void Start()
     {
         objective = FindAnyObjectByType<ObjectiveManager>();
+        game = FindAnyObjectByType<GameManager>();
     }
 
     protected override void Interact()
@@ -20,6 +22,7 @@ public class InteractableItem : Interactable
 
         AddItemToInventory(item.name);
         Debug.Log(item.name + " added to inventory");
+        game.Shopping();
     }
 
     public void AddItemToInventory(string name)
