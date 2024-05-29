@@ -44,6 +44,7 @@ public class PortalTeleporter : MonoBehaviour
         {
             playerIsOverlapping = true;
         }
+        game.AtStore();
     }
 
     void OnTriggerExit(Collider other)

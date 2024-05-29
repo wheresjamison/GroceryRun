@@ -25,6 +25,7 @@ public class ButtonManager : MonoBehaviour
     {
         //objective numbers are reset when the game is on start
         ui.StartMenu();
+        ui.CloseHelpUI();
         //objective.SetAllToFalse();
         objective.SetAllToZero();
         Debug.Log("Game has been started");
@@ -47,11 +48,13 @@ public class ButtonManager : MonoBehaviour
         //closes pause menu
         ui.UnPause();
         Debug.Log("Resume has been pressed");
+        ui.pauseIsEnabled = !ui.pauseIsEnabled;
     }
 
     public void Help()
     {
         //opens help menu, will describe the game.
+        ui.ToggleHelpUI();
         Debug.Log("Help has been pressed");
         //opens the control menu and a description of the game. 
     }
@@ -63,5 +66,6 @@ public class ButtonManager : MonoBehaviour
         quest.ResetItemsNeededToZero();
         Debug.Log("Quit has been pressed");
         game.GivenUp();
+        ui.pauseIsEnabled = !ui.pauseIsEnabled;
     }
 }

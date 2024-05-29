@@ -48,12 +48,15 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] public GameObject topScreen;
     [SerializeField] public GameObject helpUI;
     private GameManager game;
+    private bool helpIsEnabled;
 
     public void Start()
     {
         input = GetComponent<InputManager>();
         game = FindAnyObjectByType<GameManager>();
         inUI = true;
+        helpIsEnabled = true;
+        pauseIsEnabled = false;
         uiPage = 0;
         StartMenu();
     }
@@ -74,6 +77,19 @@ public class PlayerUI : MonoBehaviour
     public void CloseTopScreenUI()
     {
         topScreen.SetActive(false);
+    }
+
+    public void ToggleHelpUI()
+    {
+        if (helpIsEnabled)
+        {
+            helpUI.SetActive(false);
+        }
+        else
+        {
+            helpUI.SetActive(true);
+        }
+        helpIsEnabled = !helpIsEnabled;
     }
     public void OpenHelpUI()
     {

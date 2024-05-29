@@ -1613,7 +1613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 47
+      value: 46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1796,9 +1796,9 @@ RectTransform:
   - {fileID: 880047258}
   m_Father: {fileID: 1188109040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -99.999985}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -50, y: -99.999985}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &145797073
@@ -8620,7 +8620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 51
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10972,7 +10972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 62
+      value: 61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13851,7 +13851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 55
+      value: 54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15486,7 +15486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 61
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16102,8 +16102,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 733, y: -256}
-  m_SizeDelta: {x: 330.857, y: 251.132}
+  m_AnchoredPosition: {x: 667, y: 75}
+  m_SizeDelta: {x: 453.783, y: 425.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &880047259
 MonoBehaviour:
@@ -16127,14 +16127,21 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press E to Interact
 
-    Press TAB to toggle UI
+    Press 1 to toggle Map App
 
-    Press 1 to toggle
-    Map
+    Press 2 to toggle
+    List App
 
-    Press 2 to toggle List
+    Press 3 to toggle Inventory App
 
-    Press 3 to toggle Inventory'
+    Press TAB to scroll through
+    Apps
+
+    Press Q to close phone
+
+
+    Go to the Red Store and get the groceries
+    for the customer. Once you have their order, bring it to their house!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16161,8 +16168,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16197,7 +16204,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -41.19536, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.5983429, y: 0, z: 0, w: 0.3605957}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -16306,11 +16313,11 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.4641509, g: 0, b: 0, a: 1}
+    m_PressedColor: {r: 0.3509434, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -16397,7 +16404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 50
+      value: 49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17499,7 +17506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 57
+      value: 56
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18042,7 +18049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 59
+      value: 58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18083,24 +18090,24 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 109954305}
   - {fileID: 1739465833}
+  - {fileID: 109954305}
   - {fileID: 1385076145}
   - {fileID: 1923360247}
-  - {fileID: 415182755}
   - {fileID: 891295400}
-  - {fileID: 2083230775}
-  - {fileID: 1274290364}
+  - {fileID: 415182755}
   - {fileID: 1390411197}
+  - {fileID: 1274290364}
+  - {fileID: 2083230775}
   - {fileID: 763135948}
-  - {fileID: 943842599}
   - {fileID: 1616850362}
-  - {fileID: 1677945836}
-  - {fileID: 969252281}
+  - {fileID: 943842599}
   - {fileID: 1834394119}
-  - {fileID: 1884193489}
-  - {fileID: 571466370}
+  - {fileID: 969252281}
+  - {fileID: 1677945836}
   - {fileID: 858582386}
+  - {fileID: 571466370}
+  - {fileID: 1884193489}
   m_Father: {fileID: 1444135578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &979707626
@@ -23734,7 +23741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 53
+      value: 52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25157,7 +25164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 48
+      value: 47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25223,7 +25230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 52
+      value: 51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25373,8 +25380,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -6.873, y: -129.366}
+  m_SizeDelta: {x: 583.637, y: 104.984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1404476351
 MonoBehaviour:
@@ -26316,7 +26323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 45
+      value: 44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30136,7 +30143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 56
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31173,12 +31180,12 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5169811, g: 0.006828026, b: 0.006828026, a: 1}
+    m_PressedColor: {r: 0.24528301, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -31816,7 +31823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 60
+      value: 59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32381,7 +32388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 43
+      value: 42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32980,7 +32987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 46
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34258,7 +34265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 58
+      value: 57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35125,7 +35132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 63
+      value: 62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35908,7 +35915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 49
+      value: 48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36484,7 +36491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37543,11 +37550,11 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.509434, g: 0, b: 0, a: 1}
+    m_PressedColor: {r: 0.23773581, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -37977,7 +37984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2040463333
 Transform:
   m_ObjectHideFlags: 0
@@ -39021,7 +39028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211830943154807007, guid: d33e13466cada5549b020ff5f82cb67c, type: 3}
       propertyPath: doorIndex
-      value: 54
+      value: 53
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39881,7 +39888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223563578041339162, guid: fd58434af54c9bd449fa9941b6a4264f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10.4
       objectReference: {fileID: 0}
     - target: {fileID: 223563578041339162, guid: fd58434af54c9bd449fa9941b6a4264f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -39889,7 +39896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223563578041339162, guid: fd58434af54c9bd449fa9941b6a4264f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -135
+      value: -40.27
       objectReference: {fileID: 0}
     - target: {fileID: 223563578041339162, guid: fd58434af54c9bd449fa9941b6a4264f, type: 3}
       propertyPath: m_LocalRotation.w

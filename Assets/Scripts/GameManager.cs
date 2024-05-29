@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         ui = FindAnyObjectByType<PlayerUI>();
         checker = FindAnyObjectByType<Checker>();
         winText = new string[] { "", "Perfect Run! Great Delivery", "Nice Try! Incorrect submission", "Pathetic Delivery! Nothing was right!" };
-        statusArray = new string[] { "", "Jamison has recieved your order", "Jamison is Shopping for you", "Jamison is on his way", "Jamison has Delivered", "Jamison has given up" };
+        statusArray = new string[] { "Jamison has Arrived at the store", "Jamison has recieved your order", "Jamison is Shopping for you", "Jamison is on his way", "Jamison has Delivered", "Jamison has given up" };
     }
 
     void Update()
@@ -33,14 +33,12 @@ public class GameManager : MonoBehaviour
         if (gameIsActive)
         {
             ui.CloseTopScreenUI();
-            ui.OpenHelpUI();
             yourScore = 0;
             ui.winText.text = winText[0];
         }
         else
         {
             ui.OpenTopScreenUI();
-            ui.CloseHelpUI();
             yourScore = checker.currentScore;
             ui.scoreNumber.text = yourScore.ToString();
             ui.winText.text = winText[checker.index];
@@ -50,6 +48,11 @@ public class GameManager : MonoBehaviour
     public void Recieved()
     {
         status = statusArray[1];
+        Debug.Log(status);
+    }
+    public void AtStore()
+    {
+        status = statusArray[0];
         Debug.Log(status);
     }
     public void Shopping()
