@@ -23,7 +23,7 @@ public class ButtonManager : MonoBehaviour
     {
         //objective numbers are reset when the game is on start
         ui.StartMenu();
-        objective.SetAllToFalse();
+        //objective.SetAllToFalse();
         objective.SetAllToZero();
         Debug.Log("Game has been started");
     }

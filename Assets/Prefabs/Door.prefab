@@ -118,5 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020c6c464122ace4b8ba5fe8d90265dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Submit the Order
-  door: {fileID: 0}
+  promptMessage: Address
+  door: {fileID: 7599510051850378325}

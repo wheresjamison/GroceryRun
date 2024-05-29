@@ -42,9 +42,17 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] public TextMeshProUGUI numMilkInInventory;
     [SerializeField] public TextMeshProUGUI numCheeseInInventory;
 
+    [SerializeField] public TextMeshProUGUI scoreText;
+    [SerializeField] public TextMeshProUGUI scoreNumber;
+    [SerializeField] public TextMeshProUGUI winText;
+    [SerializeField] public GameObject topScreen;
+    [SerializeField] public GameObject helpUI;
+    private GameManager game;
+
     public void Start()
     {
         input = GetComponent<InputManager>();
+        game = FindAnyObjectByType<GameManager>();
         inUI = true;
         uiPage = 0;
         StartMenu();
@@ -138,6 +146,7 @@ public class PlayerUI : MonoBehaviour
     public void StartMenu()
     {
         startIsEnabled = true;
+        game.gameIsActive = false;
         OpenPhone();
         phoneInProgress.SetActive(true);
         phoneInventoryObjective.SetActive(false);
@@ -153,6 +162,7 @@ public class PlayerUI : MonoBehaviour
     public void CloseStart()
     {
         startIsEnabled = false;
+        game.gameIsActive = true;
         ClosePhone();
         HideCursor();
         inUI = false;

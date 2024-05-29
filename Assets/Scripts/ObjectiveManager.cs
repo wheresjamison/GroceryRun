@@ -26,24 +26,24 @@ public class ObjectiveManager : MonoBehaviour
     public string eggs;
     public string milks;
 
-    public bool applesComplete;
-    public bool bananasComplete;
-    public bool WatermelonsComplete;
-    public bool onionsComplete;
-    public bool potatosComplete;
-    public bool cornComplete;
-    public bool cheeseComplete;
-    public bool eggsComplete;
-    public bool milkComplete;
-    public bool orderIsReadyForDelivery;
-    public bool correctHouse;
-    public bool win;
+    // public bool applesComplete;
+    // public bool bananasComplete;
+    // public bool WatermelonsComplete;
+    // public bool onionsComplete;
+    // public bool potatosComplete;
+    // public bool cornComplete;
+    // public bool cheeseComplete;
+    // public bool eggsComplete;
+    // public bool milkComplete;
+    // public bool orderIsReadyForDelivery;
+    // public bool correctHouse;
+    // public bool win;
     private QuestManager quest;
 
     // Start is called before the first frame update
     void Start()
     {
-        orderIsReadyForDelivery = false;
+        //orderIsReadyForDelivery = false;
         gameIsActive = true;
         address = "filler";
         apples = "0";
@@ -128,18 +128,18 @@ public class ObjectiveManager : MonoBehaviour
     }
 
 
-    public void SetAllToFalse()
-    {
-        applesComplete = false;
-        bananasComplete = false;
-        WatermelonsComplete = false;
-        onionsComplete = false;
-        potatosComplete = false;
-        cornComplete = false;
-        cheeseComplete = false;
-        eggsComplete = false;
-        milkComplete = false;
-    }
+    // public void SetAllToFalse()
+    // {
+    //     applesComplete = false;
+    //     bananasComplete = false;
+    //     WatermelonsComplete = false;
+    //     onionsComplete = false;
+    //     potatosComplete = false;
+    //     cornComplete = false;
+    //     cheeseComplete = false;
+    //     eggsComplete = false;
+    //     milkComplete = false;
+    // }
 
     // public void CheckIfOrderIsMet()
     // {
