@@ -31,17 +31,7 @@ public class PlayerUI : MonoBehaviour
     public bool questObjectiveIsEnabled;
     public int uiPage;
 
-    [SerializeField] public TextMeshProUGUI addressTextInQuest;
     [SerializeField] public TextMeshProUGUI addressTextInInventory;
-    [SerializeField] public TextMeshProUGUI numApplesInQuest;
-    [SerializeField] public TextMeshProUGUI numBananasInQuest;
-    [SerializeField] public TextMeshProUGUI numWatermelonsInQuest;
-    [SerializeField] public TextMeshProUGUI numOnionsInQuest;
-    [SerializeField] public TextMeshProUGUI numPotatosInQuest;
-    [SerializeField] public TextMeshProUGUI numCornInQuest;
-    [SerializeField] public TextMeshProUGUI numEggsInQuest;
-    [SerializeField] public TextMeshProUGUI numMilkInQuest;
-    [SerializeField] public TextMeshProUGUI numCheeseInQuest;
     [SerializeField] public TextMeshProUGUI numApplesInInventory;
     [SerializeField] public TextMeshProUGUI numBananasInInventory;
     [SerializeField] public TextMeshProUGUI numWatermelonsInInventory;
@@ -51,8 +41,6 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] public TextMeshProUGUI numEggsInInventory;
     [SerializeField] public TextMeshProUGUI numMilkInInventory;
     [SerializeField] public TextMeshProUGUI numCheeseInInventory;
-    private QuestManager quest;
-    private ObjectiveManager inventory;
 
     public void Start()
     {
@@ -64,26 +52,6 @@ public class PlayerUI : MonoBehaviour
     public void UpdateText(string promptMessage)
     {
         promptText.text = promptMessage;
-
-        //addressText.text = quest.address;
-        numApplesInQuest.text = quest.numApplesNeeded.ToString();
-        numBananasInQuest.text = quest.numBananasNeeded.ToString();
-        numWatermelonsInQuest.text = quest.numWatermelonsNeeded.ToString();
-        numOnionsInQuest.text = quest.numOnionsNeeded.ToString();
-        numPotatosInQuest.text = quest.numPotatosNeeded.ToString();
-        numCornInQuest.text = quest.numCornNeeded.ToString();
-        numEggsInQuest.text = quest.numEggsNeeded.ToString();
-        numMilkInQuest.text = quest.numMilkNeeded.ToString();
-        numCheeseInQuest.text = quest.numCheeseNeeded.ToString();
-        numApplesInInventory.text = inventory.numApplesOwned.ToString();
-        numBananasInInventory.text = inventory.numBananasOwned.ToString();
-        numWatermelonsInInventory.text = inventory.numWatermelonsOwned.ToString();
-        numOnionsInInventory.text = inventory.numOnionsOwned.ToString();
-        numPotatosInInventory.text = inventory.numPotatosOwned.ToString();
-        numCornInInventory.text = inventory.numCornOwned.ToString();
-        numEggsInInventory.text = inventory.numEggsOwned.ToString();
-        numMilkInInventory.text = inventory.numMilkOwned.ToString();
-        numCheeseInInventory.text = inventory.numCheeseOwned.ToString();
     }
 
     public void Update()
@@ -195,9 +163,12 @@ public class PlayerUI : MonoBehaviour
     public void ToggleMap()
     {
         HideCursor();
+        CloseInventoryObjective();
+        CloseQuestObjective();
         if (mapIsEnabled)
         {
             OpenMap();
+
         }
         else
         {
@@ -221,6 +192,9 @@ public class PlayerUI : MonoBehaviour
 
     public void ToggleInventoryObjective()
     {
+        HideCursor();
+        CloseQuestObjective();
+        CloseMap();
         if (inventoryObjectiveIsEnalbed)
         {
             OpenInventoryObjective();
@@ -233,9 +207,13 @@ public class PlayerUI : MonoBehaviour
     }
     public void ToggleQuestObjective()
     {
+        HideCursor();
+        CloseInventoryObjective();
+        CloseMap();
         if (questObjectiveIsEnabled)
         {
             OpenQuestObjective();
+
         }
         else
         {
@@ -262,42 +240,35 @@ public class PlayerUI : MonoBehaviour
         {
             case 0:
                 //MAP
-                CloseQuestObjective();
+                CloseInventoryObjective();
                 OpenMap();
                 uiPage = 1;
+                Debug.Log("ToQst");
                 break;
             case 1:
                 //Quest
-                CloseInventoryObjective();
+                CloseMap();
                 OpenQuestObjective();
                 uiPage = 2;
+                Debug.Log("ToInv");
                 break;
             case 2:
                 //Inventory
-                CloseMap();
+                CloseQuestObjective();
                 OpenInventoryObjective();
                 uiPage = 0;
+                Debug.Log("ToMap");
                 break;
             default:
                 uiPage = 0;
+                OpenMap();
                 break;
         }
     }
     public void CloseFlipUI()
     {
-        switch (uiPage)
-        {
-            case 0:
-                CloseMap();
-                break;
-            case 2:
-                CloseInventoryObjective();
-                break;
-            case 1:
-                CloseQuestObjective();
-                break;
-            default:
-                break;
-        }
+        CloseMap();
+        CloseInventoryObjective();
+        CloseQuestObjective();
     }
 }

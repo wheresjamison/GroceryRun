@@ -15,6 +15,17 @@ public class ObjectiveManager : MonoBehaviour
     public int numEggsOwned;
     public int numMilkOwned;
 
+    public string address;
+    public string apples;
+    public string bananas;
+    public string watermelons;
+    public string onions;
+    public string potatos;
+    public string corns;
+    public string cheeses;
+    public string eggs;
+    public string milks;
+
     public bool applesComplete;
     public bool bananasComplete;
     public bool WatermelonsComplete;
@@ -34,24 +45,60 @@ public class ObjectiveManager : MonoBehaviour
     {
         orderIsReadyForDelivery = false;
         gameIsActive = true;
+        address = "filler";
+        apples = "0";
+        bananas = "0";
+        watermelons = "0";
+        onions = "0";
+        potatos = "0";
+        corns = "0";
+        eggs = "0";
+        milks = "0";
+        cheeses = "0";
+        SetAllToZero();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //checks to see if questmanager is met.
-        if (quest.orderAssigned == true)
-        {
-            CheckIfOrderIsMet();
-        }
-        if (orderIsReadyForDelivery)
-        {
-            //generate text using UI
-            //also call certain video for display.
-            return;
-        }
-        //time to deliver to deliver to customer.
+        //CheckIfOrderIsMet();
+    }
 
+    public void incrementInventoryItem(string name)
+    {
+        switch (name)
+        {
+            case "Apple":
+                numApplesOwned += 1;
+                break;
+            case "Banana":
+                numBananasOwned += 1;
+                break;
+            case "Watermelon":
+                numWatermelonsOwned += 1;
+                break;
+            case "Onion":
+                numOnionsOwned += 1;
+                break;
+            case "Potato":
+                numPotatosOwned += 1;
+                break;
+            case "Corn":
+                numCornOwned += 1;
+                break;
+            case "Egg":
+                numEggsOwned += 1;
+                break;
+            case "Cheese":
+                numCheeseOwned += 1;
+                break;
+            case "Milk":
+                numMilkOwned += 1;
+                break;
+            default:
+                break;
+        }
+        convertToString();
     }
 
     public void SetAllToZero()
@@ -65,7 +112,21 @@ public class ObjectiveManager : MonoBehaviour
         numCheeseOwned = 0;
         numEggsOwned = 0;
         numMilkOwned = 0;
+        convertToString();
     }
+    public void convertToString()
+    {
+        apples = numApplesOwned.ToString();
+        bananas = numBananasOwned.ToString();
+        watermelons = numWatermelonsOwned.ToString();
+        onions = numOnionsOwned.ToString();
+        potatos = numPotatosOwned.ToString();
+        corns = numCornOwned.ToString();
+        eggs = numEggsOwned.ToString();
+        milks = numMilkOwned.ToString();
+        cheeses = numCheeseOwned.ToString();
+    }
+
 
     public void SetAllToFalse()
     {
@@ -80,133 +141,133 @@ public class ObjectiveManager : MonoBehaviour
         milkComplete = false;
     }
 
-    public void CheckIfOrderIsMet()
-    {
-        ///apples
-        if (numApplesOwned == quest.numApplesNeeded)
-        {
-            applesComplete = true;
-        }
-        else
-        {
-            applesComplete = false;
-        }
-        //bananas
-        if (numBananasOwned == quest.numBananasNeeded)
-        {
-            bananasComplete = true;
-        }
-        else
-        {
-            bananasComplete = false;
-        }
-        //watermelon
-        if (numWatermelonsOwned == quest.numWatermelonsNeeded)
-        {
-            WatermelonsComplete = true;
-        }
-        else
-        {
-            WatermelonsComplete = false;
-        }
+    // public void CheckIfOrderIsMet()
+    // {
+    //     ///apples
+    //     if (numApplesOwned == quest.numApplesNeeded)
+    //     {
+    //         applesComplete = true;
+    //     }
+    //     else
+    //     {
+    //         applesComplete = false;
+    //     }
+    //     //bananas
+    //     if (numBananasOwned == quest.numBananasNeeded)
+    //     {
+    //         bananasComplete = true;
+    //     }
+    //     else
+    //     {
+    //         bananasComplete = false;
+    //     }
+    //     //watermelon
+    //     if (numWatermelonsOwned == quest.numWatermelonsNeeded)
+    //     {
+    //         WatermelonsComplete = true;
+    //     }
+    //     else
+    //     {
+    //         WatermelonsComplete = false;
+    //     }
 
-        //vegies
-        ///onions
-        if (numOnionsOwned == quest.numOnionsNeeded)
-        {
-            onionsComplete = true;
-        }
-        else
-        {
-            onionsComplete = false;
-        }
-        //potatos
-        if (numPotatosOwned == quest.numPotatosNeeded)
-        {
-            potatosComplete = true;
-        }
-        else
-        {
-            potatosComplete = false;
-        }
-        //corn
-        if (numCornOwned == quest.numCornNeeded)
-        {
-            cornComplete = true;
-        }
-        else
-        {
-            cornComplete = false;
-        }
+    //     //vegies
+    //     ///onions
+    //     if (numOnionsOwned == quest.numOnionsNeeded)
+    //     {
+    //         onionsComplete = true;
+    //     }
+    //     else
+    //     {
+    //         onionsComplete = false;
+    //     }
+    //     //potatos
+    //     if (numPotatosOwned == quest.numPotatosNeeded)
+    //     {
+    //         potatosComplete = true;
+    //     }
+    //     else
+    //     {
+    //         potatosComplete = false;
+    //     }
+    //     //corn
+    //     if (numCornOwned == quest.numCornNeeded)
+    //     {
+    //         cornComplete = true;
+    //     }
+    //     else
+    //     {
+    //         cornComplete = false;
+    //     }
 
-        //produce
-        ///cheese
-        if (numCheeseOwned == quest.numCheeseNeeded)
-        {
-            cheeseComplete = true;
-        }
-        else
-        {
-            cheeseComplete = false;
-        }
-        //eggs
-        if (numEggsOwned == quest.numEggsNeeded)
-        {
-            eggsComplete = true;
-        }
-        else
-        {
-            eggsComplete = false;
-        }
-        //milk
-        if (numMilkOwned == quest.numMilkNeeded)
-        {
-            milkComplete = true;
-        }
-        else
-        {
-            milkComplete = false;
-        }
+    //     //produce
+    //     ///cheese
+    //     if (numCheeseOwned == quest.numCheeseNeeded)
+    //     {
+    //         cheeseComplete = true;
+    //     }
+    //     else
+    //     {
+    //         cheeseComplete = false;
+    //     }
+    //     //eggs
+    //     if (numEggsOwned == quest.numEggsNeeded)
+    //     {
+    //         eggsComplete = true;
+    //     }
+    //     else
+    //     {
+    //         eggsComplete = false;
+    //     }
+    //     //milk
+    //     if (numMilkOwned == quest.numMilkNeeded)
+    //     {
+    //         milkComplete = true;
+    //     }
+    //     else
+    //     {
+    //         milkComplete = false;
+    //     }
 
-        if (
-            applesComplete &&
-            bananasComplete &&
-            WatermelonsComplete &&
-            onionsComplete &&
-            potatosComplete &&
-            cornComplete &&
-            cheeseComplete &&
-            eggsComplete &&
-            milkComplete
-            )
-        {
-            orderIsReadyForDelivery = true;
-        }
-        else
-        {
-            orderIsReadyForDelivery = false;
-        }
-    }
-    public void CheckHouse(int houseNumber)
-    {
-        if (houseNumber == quest.assignedAddressIndex)
-        {
-            correctHouse = true;
-            Debug.Log("Correct House");
-        }
-        else
-        {
-            correctHouse = false;
-            Debug.Log("Incorrect House");
-        }
-    }
-    public void DeliverToCustomer()
-    {
-        if (correctHouse)
-        {
-            win = true;
-            Debug.Log("You have won");
-            //pause time and give player reward.
-        }
-    }
+    //     if (
+    //         applesComplete &&
+    //         bananasComplete &&
+    //         WatermelonsComplete &&
+    //         onionsComplete &&
+    //         potatosComplete &&
+    //         cornComplete &&
+    //         cheeseComplete &&
+    //         eggsComplete &&
+    //         milkComplete
+    //         )
+    //     {
+    //         orderIsReadyForDelivery = true;
+    //     }
+    //     else
+    //     {
+    //         orderIsReadyForDelivery = false;
+    //     }
+    // }
+    // public void CheckHouse(int houseNumber)
+    // {
+    //     if (houseNumber == quest.assignedAddressIndex)
+    //     {
+    //         correctHouse = true;
+    //         Debug.Log("Correct House");
+    //     }
+    //     else
+    //     {
+    //         correctHouse = false;
+    //         Debug.Log("Incorrect House");
+    //     }
+    // }
+    // public void DeliverToCustomer()
+    // {
+    //     if (correctHouse)
+    //     {
+    //         win = true;
+    //         Debug.Log("You have won");
+    //         //pause time and give player reward.
+    //     }
+    // }
 }

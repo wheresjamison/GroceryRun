@@ -3838,7 +3838,7 @@ GameObject:
   - component: {fileID: 316907835}
   - component: {fileID: 316907834}
   m_Layer: 0
-  m_Name: NumPotatos
+  m_Name: NumPotatos_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5732,7 +5732,7 @@ GameObject:
   - component: {fileID: 433535801}
   - component: {fileID: 433535800}
   m_Layer: 0
-  m_Name: NumMilks
+  m_Name: NumMilks_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5903,17 +5903,7 @@ MonoBehaviour:
   inventoryObjectiveIsEnalbed: 0
   questObjectiveIsEnabled: 0
   uiPage: 0
-  addressTextInQuest: {fileID: 0}
-  addressTextInInventory: {fileID: 0}
-  numApplesInQuest: {fileID: 830311429}
-  numBananasInQuest: {fileID: 1041764507}
-  numWatermelonsInQuest: {fileID: 1958485308}
-  numOnionsInQuest: {fileID: 852309723}
-  numPotatosInQuest: {fileID: 316907834}
-  numCornInQuest: {fileID: 1866769755}
-  numEggsInQuest: {fileID: 1866769755}
-  numMilkInQuest: {fileID: 433535800}
-  numCheeseInQuest: {fileID: 2034275148}
+  addressTextInInventory: {fileID: 1494144524}
   numApplesInInventory: {fileID: 1265789313}
   numBananasInInventory: {fileID: 895453917}
   numWatermelonsInInventory: {fileID: 1439911746}
@@ -5998,8 +5988,17 @@ MonoBehaviour:
   numMilkNeeded: 0
   orderAssigned: 0
   assigned: 0
-  address: 
   assignedAddressIndex: 0
+  address: 
+  apples: 
+  bananas: 
+  watermelons: 
+  onions: 
+  potatos: 
+  corn: 
+  eggs: 
+  milk: 
+  cheese: 
 --- !u!114 &434468244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6024,6 +6023,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7357e8b2574797f49a1cb273519f7460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &434468252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434468216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3bbb3a24dd8914aa5f12aebe2e2ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameIsActive: 0
+  numApplesOwned: 0
+  numBananasOwned: 0
+  numWatermelonsOwned: 0
+  numOnionsOwned: 0
+  numPotatosOwned: 0
+  numCornOwned: 0
+  numCheeseOwned: 0
+  numEggsOwned: 0
+  numMilkOwned: 0
+  address: 
+  apples: 
+  bananas: 
+  watermelons: 
+  onions: 
+  potatos: 
+  corns: 
+  cheeses: 
+  eggs: 
+  milks: 
+  applesComplete: 0
+  bananasComplete: 0
+  WatermelonsComplete: 0
+  onionsComplete: 0
+  potatosComplete: 0
+  cornComplete: 0
+  cheeseComplete: 0
+  eggsComplete: 0
+  milkComplete: 0
+  orderIsReadyForDelivery: 0
+  correctHouse: 0
+  win: 0
 --- !u!1 &449214102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6248,7 +6291,7 @@ GameObject:
   - component: {fileID: 461668433}
   - component: {fileID: 461668432}
   m_Layer: 0
-  m_Name: NumEggs
+  m_Name: NumEggs_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11385,7 +11428,7 @@ GameObject:
   - component: {fileID: 830311430}
   - component: {fileID: 830311429}
   m_Layer: 0
-  m_Name: NumApples
+  m_Name: NumApples_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11804,7 +11847,7 @@ GameObject:
   - component: {fileID: 852309724}
   - component: {fileID: 852309723}
   m_Layer: 0
-  m_Name: NumOnions
+  m_Name: NumOnions_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12820,7 +12863,7 @@ GameObject:
   - component: {fileID: 895453918}
   - component: {fileID: 895453917}
   m_Layer: 0
-  m_Name: NumBananas
+  m_Name: NumBananas_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14089,7 +14132,7 @@ GameObject:
   - component: {fileID: 990280593}
   - component: {fileID: 990280592}
   m_Layer: 0
-  m_Name: NumCheese
+  m_Name: NumCheese_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14764,7 +14807,7 @@ GameObject:
   - component: {fileID: 1041764508}
   - component: {fileID: 1041764507}
   m_Layer: 0
-  m_Name: NumBananas
+  m_Name: NumBananas_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18935,7 +18978,7 @@ GameObject:
   - component: {fileID: 1265789314}
   - component: {fileID: 1265789313}
   m_Layer: 0
-  m_Name: NumApples
+  m_Name: NumApples_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21120,7 +21163,7 @@ GameObject:
   - component: {fileID: 1439911747}
   - component: {fileID: 1439911746}
   m_Layer: 0
-  m_Name: NumWatermelons
+  m_Name: NumWatermelons_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21573,7 +21616,7 @@ GameObject:
   - component: {fileID: 1470798885}
   - component: {fileID: 1470798884}
   m_Layer: 0
-  m_Name: NumMilks
+  m_Name: NumMilks_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21945,7 +21988,7 @@ GameObject:
   - component: {fileID: 1494144525}
   - component: {fileID: 1494144524}
   m_Layer: 0
-  m_Name: Address
+  m_Name: Address_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25268,7 +25311,7 @@ GameObject:
   - component: {fileID: 1634739093}
   - component: {fileID: 1634739092}
   m_Layer: 0
-  m_Name: NumCorn
+  m_Name: NumCorn_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27329,7 +27372,7 @@ GameObject:
   - component: {fileID: 1763900988}
   - component: {fileID: 1763900987}
   m_Layer: 0
-  m_Name: NumPotatos
+  m_Name: NumPotatos_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27568,7 +27611,7 @@ GameObject:
   - component: {fileID: 1785341110}
   - component: {fileID: 1785341109}
   m_Layer: 0
-  m_Name: NumOnions
+  m_Name: NumOnions_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28351,7 +28394,7 @@ GameObject:
   - component: {fileID: 1866769756}
   - component: {fileID: 1866769755}
   m_Layer: 0
-  m_Name: NumCorn
+  m_Name: NumCorn_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29909,7 +29952,7 @@ GameObject:
   - component: {fileID: 1958485309}
   - component: {fileID: 1958485308}
   m_Layer: 0
-  m_Name: NumWatermelons
+  m_Name: NumWatermelons_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30253,7 +30296,7 @@ GameObject:
   - component: {fileID: 1994787379}
   - component: {fileID: 1994787378}
   m_Layer: 0
-  m_Name: NumEggs
+  m_Name: NumEggs_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30492,7 +30535,7 @@ GameObject:
   - component: {fileID: 2025410806}
   - component: {fileID: 2025410805}
   m_Layer: 0
-  m_Name: Address
+  m_Name: Address_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30901,7 +30944,7 @@ GameObject:
   - component: {fileID: 2034275149}
   - component: {fileID: 2034275148}
   m_Layer: 0
-  m_Name: NumCheese
+  m_Name: NumCheese_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32143,6 +32186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2095522396}
   - component: {fileID: 2095522397}
+  - component: {fileID: 2095522398}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -32181,6 +32225,38 @@ MonoBehaviour:
   cameraB: {fileID: 2137272232}
   cameralMatA: {fileID: 2100000, guid: 6cfe99f30a0af0a4f970dfae3c39a04b, type: 2}
   cameralMatB: {fileID: 2100000, guid: c63ccc81ee0bb6e4eb4992043f656f37, type: 2}
+--- !u!114 &2095522398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095522395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec5c8a85e2ee874491fb05dbe821ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questAddress: {fileID: 2025410805}
+  questNumApples: {fileID: 830311429}
+  questNumBananas: {fileID: 1041764507}
+  questNumWatermelons: {fileID: 1958485308}
+  questNumOnions: {fileID: 852309723}
+  questNumPotatos: {fileID: 316907834}
+  questNumCorns: {fileID: 1866769755}
+  questNumEggs: {fileID: 1994787378}
+  questNumMilks: {fileID: 433535800}
+  questNumCheeses: {fileID: 2034275148}
+  invAddress: {fileID: 1494144524}
+  invNumApples: {fileID: 1265789313}
+  invNumBananas: {fileID: 895453917}
+  invNumWatermelons: {fileID: 1439911746}
+  invNumOnions: {fileID: 1785341109}
+  invNumPotatos: {fileID: 1763900987}
+  invNumCorns: {fileID: 1634739092}
+  invNumEggs: {fileID: 461668432}
+  invNumMilks: {fileID: 1470798884}
+  invNumCheeses: {fileID: 990280592}
 --- !u!1 &2102690821
 GameObject:
   m_ObjectHideFlags: 0
@@ -32926,6 +33002,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8764497157926383558, guid: fd58434af54c9bd449fa9941b6a4264f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 434468243}
+    - targetCorrespondingSourceObject: {fileID: 8764497157926383558, guid: fd58434af54c9bd449fa9941b6a4264f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 434468252}
     - targetCorrespondingSourceObject: {fileID: 8764497157926383558, guid: fd58434af54c9bd449fa9941b6a4264f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 434468248}

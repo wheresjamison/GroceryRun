@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using TMPro;
+
 
 public class QuestManager : MonoBehaviour
 {
@@ -20,13 +22,34 @@ public class QuestManager : MonoBehaviour
 
     public int assigned;
     private string[] addresses;
-    public string address;
     public int assignedAddressIndex;
+    public string address;
+
+    public string apples;
+    public string bananas;
+    public string watermelons;
+    public string onions;
+    public string potatos;
+    public string corn;
+    public string eggs;
+    public string milk;
+    public string cheese;
+
 
     // Start is called before the first frame update
     void Start()
     {
         address = "filler";
+        apples = "0";
+        bananas = "0";
+        watermelons = "0";
+        onions = "0";
+        potatos = "0";
+        corn = "0";
+        eggs = "0";
+        milk = "0";
+        cheese = "0";
+
         ResetItemsNeededToZero();
         orderAssigned = false;
         //65 different addresses
@@ -59,6 +82,7 @@ public class QuestManager : MonoBehaviour
         numCheeseNeeded = Random.Range(0, 5);
         numEggsNeeded = Random.Range(0, 5);
         numMilkNeeded = Random.Range(0, 5);
+        convertToString();
 
         orderAssigned = true;
 
@@ -84,6 +108,19 @@ public class QuestManager : MonoBehaviour
         numCheeseNeeded = 0;
         numEggsNeeded = 0;
         numMilkNeeded = 0;
+        convertToString();
     }
 
+    public void convertToString()
+    {
+        apples = numApplesNeeded.ToString();
+        bananas = numBananasNeeded.ToString();
+        watermelons = numWatermelonsNeeded.ToString();
+        onions = numOnionsNeeded.ToString();
+        potatos = numPotatosNeeded.ToString();
+        corn = numCornNeeded.ToString();
+        eggs = numEggsNeeded.ToString();
+        milk = numMilkNeeded.ToString();
+        cheese = numCheeseNeeded.ToString();
+    }
 }

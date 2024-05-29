@@ -26,9 +26,9 @@ public class Door : Interactable
         Debug.Log("Interacted with " + gameObject.name);
         //create function that submits the order to the customer's door
 
-        objective.CheckHouse(1);
-        objective.CheckIfOrderIsMet();
-        objective.DeliverToCustomer();
+        // objective.CheckHouse(1);
+        // objective.CheckIfOrderIsMet();
+        // objective.DeliverToCustomer();
 
     }
 }
