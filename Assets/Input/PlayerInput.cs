@@ -64,15 +64,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Map"",
-                    ""type"": ""Button"",
-                    ""id"": ""b40bb59e-00ca-4461-afc0-8106cf1cbd24"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""0860e818-be8c-4b28-a130-d10fbd525217"",
@@ -82,9 +73,45 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Objectives"",
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""b40bb59e-00ca-4461-afc0-8106cf1cbd24"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Quest"",
                     ""type"": ""Button"",
                     ""id"": ""f8910151-7120-47a5-871c-2ba82e4aa7d3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b1ad2cb-270a-474c-93fd-2ae7413ba1c4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Flip"",
+                    ""type"": ""Button"",
+                    ""id"": ""e77527c5-44d8-4da9-84da-eb7587cb2d55"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseFlip"",
+                    ""type"": ""Button"",
+                    ""id"": ""44d16451-c825-4590-8d4b-18eb8df3f22d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -182,17 +209,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7fdd179e-5ad3-4955-9d45-9458d844cd7d"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Map"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""5b5f31dd-8246-4e04-96e5-48d74ffa7632"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -205,11 +221,55 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b3c501ca-5521-4d49-8ae1-0d83e19a4267"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0dd9bf07-d99f-42ec-9687-8b55b7ce6767"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7fdd179e-5ad3-4955-9d45-9458d844cd7d"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68d6d803-81ef-4744-8b15-7d88ffac4976"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64271596-aa23-4553-917e-1f876956217d"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Objectives"",
+                    ""action"": ""CloseFlip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -740,9 +800,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_OnFoot_Jump = m_OnFoot.FindAction("Jump", throwIfNotFound: true);
         m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
-        m_OnFoot_Map = m_OnFoot.FindAction("Map", throwIfNotFound: true);
         m_OnFoot_Pause = m_OnFoot.FindAction("Pause", throwIfNotFound: true);
-        m_OnFoot_Objectives = m_OnFoot.FindAction("Objectives", throwIfNotFound: true);
+        m_OnFoot_Map = m_OnFoot.FindAction("Map", throwIfNotFound: true);
+        m_OnFoot_Quest = m_OnFoot.FindAction("Quest", throwIfNotFound: true);
+        m_OnFoot_Inventory = m_OnFoot.FindAction("Inventory", throwIfNotFound: true);
+        m_OnFoot_Flip = m_OnFoot.FindAction("Flip", throwIfNotFound: true);
+        m_OnFoot_CloseFlip = m_OnFoot.FindAction("CloseFlip", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -820,9 +883,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Jump;
     private readonly InputAction m_OnFoot_Look;
     private readonly InputAction m_OnFoot_Interact;
-    private readonly InputAction m_OnFoot_Map;
     private readonly InputAction m_OnFoot_Pause;
-    private readonly InputAction m_OnFoot_Objectives;
+    private readonly InputAction m_OnFoot_Map;
+    private readonly InputAction m_OnFoot_Quest;
+    private readonly InputAction m_OnFoot_Inventory;
+    private readonly InputAction m_OnFoot_Flip;
+    private readonly InputAction m_OnFoot_CloseFlip;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -831,9 +897,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_OnFoot_Jump;
         public InputAction @Look => m_Wrapper.m_OnFoot_Look;
         public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
-        public InputAction @Map => m_Wrapper.m_OnFoot_Map;
         public InputAction @Pause => m_Wrapper.m_OnFoot_Pause;
-        public InputAction @Objectives => m_Wrapper.m_OnFoot_Objectives;
+        public InputAction @Map => m_Wrapper.m_OnFoot_Map;
+        public InputAction @Quest => m_Wrapper.m_OnFoot_Quest;
+        public InputAction @Inventory => m_Wrapper.m_OnFoot_Inventory;
+        public InputAction @Flip => m_Wrapper.m_OnFoot_Flip;
+        public InputAction @CloseFlip => m_Wrapper.m_OnFoot_CloseFlip;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -855,15 +924,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @Map.started += instance.OnMap;
-            @Map.performed += instance.OnMap;
-            @Map.canceled += instance.OnMap;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
-            @Objectives.started += instance.OnObjectives;
-            @Objectives.performed += instance.OnObjectives;
-            @Objectives.canceled += instance.OnObjectives;
+            @Map.started += instance.OnMap;
+            @Map.performed += instance.OnMap;
+            @Map.canceled += instance.OnMap;
+            @Quest.started += instance.OnQuest;
+            @Quest.performed += instance.OnQuest;
+            @Quest.canceled += instance.OnQuest;
+            @Inventory.started += instance.OnInventory;
+            @Inventory.performed += instance.OnInventory;
+            @Inventory.canceled += instance.OnInventory;
+            @Flip.started += instance.OnFlip;
+            @Flip.performed += instance.OnFlip;
+            @Flip.canceled += instance.OnFlip;
+            @CloseFlip.started += instance.OnCloseFlip;
+            @CloseFlip.performed += instance.OnCloseFlip;
+            @CloseFlip.canceled += instance.OnCloseFlip;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -880,15 +958,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @Map.started -= instance.OnMap;
-            @Map.performed -= instance.OnMap;
-            @Map.canceled -= instance.OnMap;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
-            @Objectives.started -= instance.OnObjectives;
-            @Objectives.performed -= instance.OnObjectives;
-            @Objectives.canceled -= instance.OnObjectives;
+            @Map.started -= instance.OnMap;
+            @Map.performed -= instance.OnMap;
+            @Map.canceled -= instance.OnMap;
+            @Quest.started -= instance.OnQuest;
+            @Quest.performed -= instance.OnQuest;
+            @Quest.canceled -= instance.OnQuest;
+            @Inventory.started -= instance.OnInventory;
+            @Inventory.performed -= instance.OnInventory;
+            @Inventory.canceled -= instance.OnInventory;
+            @Flip.started -= instance.OnFlip;
+            @Flip.performed -= instance.OnFlip;
+            @Flip.canceled -= instance.OnFlip;
+            @CloseFlip.started -= instance.OnCloseFlip;
+            @CloseFlip.performed -= instance.OnCloseFlip;
+            @CloseFlip.canceled -= instance.OnCloseFlip;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -1030,9 +1117,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnMap(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnObjectives(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
+        void OnQuest(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
+        void OnFlip(InputAction.CallbackContext context);
+        void OnCloseFlip(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

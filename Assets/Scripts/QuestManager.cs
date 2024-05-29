@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -18,12 +19,14 @@ public class QuestManager : MonoBehaviour
     public bool orderAssigned;
 
     public int assigned;
-    public string[] addresses;
+    private string[] addresses;
+    public string address;
     public int assignedAddressIndex;
 
     // Start is called before the first frame update
     void Start()
     {
+        address = "filler";
         ResetItemsNeededToZero();
         orderAssigned = false;
         //65 different addresses
@@ -41,7 +44,8 @@ public class QuestManager : MonoBehaviour
     public void GenerateHouse()
     {
         assignedAddressIndex = Random.Range(1, assignedAddressIndex); //between 1-65 
-        Debug.Log("Address assigned : " + addresses[assignedAddressIndex]);
+        address = addresses[assignedAddressIndex];
+        Debug.Log("Address assigned : " + address);
     }
 
     public void GenerateOrder()

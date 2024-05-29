@@ -42,15 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Map",
-                    "type": "Button",
-                    "id": "b40bb59e-00ca-4461-afc0-8106cf1cbd24",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "0860e818-be8c-4b28-a130-d10fbd525217",
@@ -60,9 +51,45 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Objectives",
+                    "name": "Map",
+                    "type": "Button",
+                    "id": "b40bb59e-00ca-4461-afc0-8106cf1cbd24",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Quest",
                     "type": "Button",
                     "id": "f8910151-7120-47a5-871c-2ba82e4aa7d3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "4b1ad2cb-270a-474c-93fd-2ae7413ba1c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Flip",
+                    "type": "Button",
+                    "id": "e77527c5-44d8-4da9-84da-eb7587cb2d55",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CloseFlip",
+                    "type": "Button",
+                    "id": "44d16451-c825-4590-8d4b-18eb8df3f22d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -160,17 +187,6 @@
                 },
                 {
                     "name": "",
-                    "id": "7fdd179e-5ad3-4955-9d45-9458d844cd7d",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Map",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "5b5f31dd-8246-4e04-96e5-48d74ffa7632",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -183,11 +199,55 @@
                 {
                     "name": "",
                     "id": "b3c501ca-5521-4d49-8ae1-0d83e19a4267",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0dd9bf07-d99f-42ec-9687-8b55b7ce6767",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7fdd179e-5ad3-4955-9d45-9458d844cd7d",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Map",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68d6d803-81ef-4744-8b15-7d88ffac4976",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64271596-aa23-4553-917e-1f876956217d",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Objectives",
+                    "action": "CloseFlip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

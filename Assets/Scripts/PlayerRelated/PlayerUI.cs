@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI promptText;
     [SerializeField] public GameObject phone;
     [SerializeField] public GameObject phoneInProgress;
-    [SerializeField] public GameObject phoneObjective;
+    //this is the inventory
+    [SerializeField] public GameObject phoneInventoryObjective;
+    [SerializeField] public GameObject phoneQuestObjective; // new
 
     [SerializeField] public GameObject phonePause;
     [SerializeField] public GameObject resumeButton;
@@ -20,18 +24,66 @@ public class PlayerUI : MonoBehaviour
 
     private InputManager input;
     public bool inUI;
+    public bool startIsEnabled;
     public bool mapIsEnabled;
     public bool pauseIsEnabled;
-    public bool objectiveIsEnalbed;
+    public bool inventoryObjectiveIsEnalbed;
+    public bool questObjectiveIsEnabled;
+    public int uiPage;
+
+    [SerializeField] public TextMeshProUGUI addressTextInQuest;
+    [SerializeField] public TextMeshProUGUI addressTextInInventory;
+    [SerializeField] public TextMeshProUGUI numApplesInQuest;
+    [SerializeField] public TextMeshProUGUI numBananasInQuest;
+    [SerializeField] public TextMeshProUGUI numWatermelonsInQuest;
+    [SerializeField] public TextMeshProUGUI numOnionsInQuest;
+    [SerializeField] public TextMeshProUGUI numPotatosInQuest;
+    [SerializeField] public TextMeshProUGUI numCornInQuest;
+    [SerializeField] public TextMeshProUGUI numEggsInQuest;
+    [SerializeField] public TextMeshProUGUI numMilkInQuest;
+    [SerializeField] public TextMeshProUGUI numCheeseInQuest;
+    [SerializeField] public TextMeshProUGUI numApplesInInventory;
+    [SerializeField] public TextMeshProUGUI numBananasInInventory;
+    [SerializeField] public TextMeshProUGUI numWatermelonsInInventory;
+    [SerializeField] public TextMeshProUGUI numOnionsInInventory;
+    [SerializeField] public TextMeshProUGUI numPotatosInInventory;
+    [SerializeField] public TextMeshProUGUI numCornInInventory;
+    [SerializeField] public TextMeshProUGUI numEggsInInventory;
+    [SerializeField] public TextMeshProUGUI numMilkInInventory;
+    [SerializeField] public TextMeshProUGUI numCheeseInInventory;
+    private QuestManager quest;
+    private ObjectiveManager inventory;
 
     public void Start()
     {
         input = GetComponent<InputManager>();
         inUI = true;
+        uiPage = 0;
+        StartMenu();
     }
     public void UpdateText(string promptMessage)
     {
         promptText.text = promptMessage;
+
+        //addressText.text = quest.address;
+        numApplesInQuest.text = quest.numApplesNeeded.ToString();
+        numBananasInQuest.text = quest.numBananasNeeded.ToString();
+        numWatermelonsInQuest.text = quest.numWatermelonsNeeded.ToString();
+        numOnionsInQuest.text = quest.numOnionsNeeded.ToString();
+        numPotatosInQuest.text = quest.numPotatosNeeded.ToString();
+        numCornInQuest.text = quest.numCornNeeded.ToString();
+        numEggsInQuest.text = quest.numEggsNeeded.ToString();
+        numMilkInQuest.text = quest.numMilkNeeded.ToString();
+        numCheeseInQuest.text = quest.numCheeseNeeded.ToString();
+        numApplesInInventory.text = inventory.numApplesOwned.ToString();
+        numBananasInInventory.text = inventory.numBananasOwned.ToString();
+        numWatermelonsInInventory.text = inventory.numWatermelonsOwned.ToString();
+        numOnionsInInventory.text = inventory.numOnionsOwned.ToString();
+        numPotatosInInventory.text = inventory.numPotatosOwned.ToString();
+        numCornInInventory.text = inventory.numCornOwned.ToString();
+        numEggsInInventory.text = inventory.numEggsOwned.ToString();
+        numMilkInInventory.text = inventory.numMilkOwned.ToString();
+        numCheeseInInventory.text = inventory.numCheeseOwned.ToString();
     }
 
     public void Update()
@@ -48,14 +100,14 @@ public class PlayerUI : MonoBehaviour
         phone.SetActive(false);
     }
 
-    public void phoneMapOpen()
+    public void OpenMap()
     {
         OpenPhone();
         HideCursor();
         inUI = false;
         phoneInProgress.SetActive(true);
     }
-    public void phoneMapClose()
+    public void CloseMap()
     {
         ClosePhone();
         HideCursor();
@@ -63,20 +115,36 @@ public class PlayerUI : MonoBehaviour
         phoneInProgress.SetActive(true);
     }
 
-    public void OpenObjective()
+    public void OpenInventoryObjective()
     {
         OpenPhone();
         HideCursor();
         inUI = false;
-        phoneObjective.SetActive(true);
+        phoneInventoryObjective.SetActive(true);
     }
-    public void CloseObjective()
+    public void CloseInventoryObjective()
     {
         ClosePhone();
         HideCursor();
         inUI = false;
-        phoneObjective.SetActive(false);
+        phoneInventoryObjective.SetActive(false);
     }
+    public void OpenQuestObjective()
+    {
+        OpenPhone();
+        HideCursor();
+        inUI = false;
+        phoneQuestObjective.SetActive(true);
+    }
+    public void CloseQuestObjective()
+    {
+        ClosePhone();
+        HideCursor();
+        inUI = false;
+        phoneQuestObjective.SetActive(false);
+    }
+
+
     public void Pause()
     {
         OpenPhone();
@@ -86,6 +154,7 @@ public class PlayerUI : MonoBehaviour
         resumeButton.SetActive(true);
         helpButton.SetActive(true);
         quitButton.SetActive(true);
+
     }
     public void UnPause()
     {
@@ -100,9 +169,10 @@ public class PlayerUI : MonoBehaviour
 
     public void StartMenu()
     {
+        startIsEnabled = true;
         OpenPhone();
         phoneInProgress.SetActive(true);
-        phoneObjective.SetActive(false);
+        phoneInventoryObjective.SetActive(false);
         phonePause.SetActive(false);
         resumeButton.SetActive(false);
         helpButton.SetActive(false);
@@ -114,6 +184,7 @@ public class PlayerUI : MonoBehaviour
     }
     public void CloseStart()
     {
+        startIsEnabled = false;
         ClosePhone();
         HideCursor();
         inUI = false;
@@ -126,11 +197,11 @@ public class PlayerUI : MonoBehaviour
         HideCursor();
         if (mapIsEnabled)
         {
-            phoneMapOpen();
+            OpenMap();
         }
         else
         {
-            phoneMapClose();
+            CloseMap();
         }
         mapIsEnabled = !mapIsEnabled;
     }
@@ -148,17 +219,29 @@ public class PlayerUI : MonoBehaviour
         pauseIsEnabled = !pauseIsEnabled;
     }
 
-    public void ToggleObjective()
+    public void ToggleInventoryObjective()
     {
-        if (objectiveIsEnalbed)
+        if (inventoryObjectiveIsEnalbed)
         {
-            OpenObjective();
+            OpenInventoryObjective();
         }
         else
         {
-            CloseObjective();
+            CloseInventoryObjective();
         }
-        objectiveIsEnalbed = !objectiveIsEnalbed;
+        inventoryObjectiveIsEnalbed = !inventoryObjectiveIsEnalbed;
+    }
+    public void ToggleQuestObjective()
+    {
+        if (questObjectiveIsEnabled)
+        {
+            OpenQuestObjective();
+        }
+        else
+        {
+            CloseQuestObjective();
+        }
+        questObjectiveIsEnabled = !questObjectiveIsEnabled;
     }
 
     public void ShowCursor()
@@ -171,5 +254,50 @@ public class PlayerUI : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void FlipThroughUI()
+    {
+        switch (uiPage)
+        {
+            case 0:
+                //MAP
+                CloseQuestObjective();
+                OpenMap();
+                uiPage = 1;
+                break;
+            case 1:
+                //Quest
+                CloseInventoryObjective();
+                OpenQuestObjective();
+                uiPage = 2;
+                break;
+            case 2:
+                //Inventory
+                CloseMap();
+                OpenInventoryObjective();
+                uiPage = 0;
+                break;
+            default:
+                uiPage = 0;
+                break;
+        }
+    }
+    public void CloseFlipUI()
+    {
+        switch (uiPage)
+        {
+            case 0:
+                CloseMap();
+                break;
+            case 2:
+                CloseInventoryObjective();
+                break;
+            case 1:
+                CloseQuestObjective();
+                break;
+            default:
+                break;
+        }
     }
 }

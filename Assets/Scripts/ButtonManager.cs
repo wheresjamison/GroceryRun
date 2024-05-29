@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +32,6 @@ public class ButtonManager : MonoBehaviour
     {
         //closes the start menu and assigs house and location
         ui.CloseStart(); // <------------------------------------------- look here ----- ERROR OCCURS HERE FOR NULLEXCEPTION . I cant get this to fucking work 
-        //I wonder sdthdf tdf thitit sdit ithsld kj ... ethisdt .t
         quest.GenerateHouse();
         quest.GenerateOrder();
         Debug.Log("StartGame has been pressed");
@@ -58,8 +56,6 @@ public class ButtonManager : MonoBehaviour
         //closes the clears quests and stuff. brings back to start menu
         ui.StartMenu();
         quest.ResetItemsNeededToZero();
-        objective.SetAllToFalse();
-        objective.SetAllToZero();
         Debug.Log("Quit has been pressed");
     }
 }

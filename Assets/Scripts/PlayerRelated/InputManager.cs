@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     private PlayerLook look;
     private PlayerUI ui;
     public bool inUI;
+    public bool inStart;
 
     void Awake()
     {
@@ -20,12 +21,16 @@ public class InputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
         ui = GetComponent<PlayerUI>();
         onFoot.Jump.performed += ctx => motor.Jump();
-        //toggle ui
-        onFoot.Map.performed += ctx => ui.ToggleMap();
-        onFoot.Pause.performed += ctx => ui.TogglePause();
-        onFoot.Objectives.performed += ctx => ui.ToggleObjective();
 
-        ui.StartMenu();
+        //toggle ui
+
+        onFoot.Pause.performed += ctx => ui.TogglePause();
+        onFoot.Map.performed += ctx => ui.ToggleMap();
+        onFoot.Quest.performed += ctx => ui.ToggleQuestObjective();
+        onFoot.Inventory.performed += ctx => ui.ToggleInventoryObjective();
+        onFoot.Flip.performed += ctx => ui.FlipThroughUI();
+        onFoot.CloseFlip.performed += ctx => ui.CloseFlipUI();
+
     }
 
     // Update is called once per frame

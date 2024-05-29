@@ -5,15 +5,15 @@ using UnityEngine;
 public class ObjectiveManager : MonoBehaviour
 {
     public bool gameIsActive;
-    public int numApples;
-    public int numBananas;
-    public int numWatermelons;
-    public int numOnions;
-    public int numPotatos;
-    public int numCorn;
-    public int numCheese;
-    public int numEggs;
-    public int numMilk;
+    public int numApplesOwned;
+    public int numBananasOwned;
+    public int numWatermelonsOwned;
+    public int numOnionsOwned;
+    public int numPotatosOwned;
+    public int numCornOwned;
+    public int numCheeseOwned;
+    public int numEggsOwned;
+    public int numMilkOwned;
 
     public bool applesComplete;
     public bool bananasComplete;
@@ -27,7 +27,7 @@ public class ObjectiveManager : MonoBehaviour
     public bool orderIsReadyForDelivery;
     public bool correctHouse;
     public bool win;
-    public QuestManager quest;
+    private QuestManager quest;
 
     // Start is called before the first frame update
     void Start()
@@ -56,15 +56,15 @@ public class ObjectiveManager : MonoBehaviour
 
     public void SetAllToZero()
     {
-        numApples = 0;
-        numBananas = 0;
-        numWatermelons = 0;
-        numOnions = 0;
-        numPotatos = 0;
-        numCorn = 0;
-        numCheese = 0;
-        numEggs = 0;
-        numMilk = 0;
+        numApplesOwned = 0;
+        numBananasOwned = 0;
+        numWatermelonsOwned = 0;
+        numOnionsOwned = 0;
+        numPotatosOwned = 0;
+        numCornOwned = 0;
+        numCheeseOwned = 0;
+        numEggsOwned = 0;
+        numMilkOwned = 0;
     }
 
     public void SetAllToFalse()
@@ -83,7 +83,7 @@ public class ObjectiveManager : MonoBehaviour
     public void CheckIfOrderIsMet()
     {
         ///apples
-        if (numApples == quest.numApplesNeeded)
+        if (numApplesOwned == quest.numApplesNeeded)
         {
             applesComplete = true;
         }
@@ -92,7 +92,7 @@ public class ObjectiveManager : MonoBehaviour
             applesComplete = false;
         }
         //bananas
-        if (numBananas == quest.numBananasNeeded)
+        if (numBananasOwned == quest.numBananasNeeded)
         {
             bananasComplete = true;
         }
@@ -101,7 +101,7 @@ public class ObjectiveManager : MonoBehaviour
             bananasComplete = false;
         }
         //watermelon
-        if (numWatermelons == quest.numWatermelonsNeeded)
+        if (numWatermelonsOwned == quest.numWatermelonsNeeded)
         {
             WatermelonsComplete = true;
         }
@@ -112,7 +112,7 @@ public class ObjectiveManager : MonoBehaviour
 
         //vegies
         ///onions
-        if (numOnions == quest.numOnionsNeeded)
+        if (numOnionsOwned == quest.numOnionsNeeded)
         {
             onionsComplete = true;
         }
@@ -121,7 +121,7 @@ public class ObjectiveManager : MonoBehaviour
             onionsComplete = false;
         }
         //potatos
-        if (numPotatos == quest.numPotatosNeeded)
+        if (numPotatosOwned == quest.numPotatosNeeded)
         {
             potatosComplete = true;
         }
@@ -130,7 +130,7 @@ public class ObjectiveManager : MonoBehaviour
             potatosComplete = false;
         }
         //corn
-        if (numCorn == quest.numCornNeeded)
+        if (numCornOwned == quest.numCornNeeded)
         {
             cornComplete = true;
         }
@@ -141,7 +141,7 @@ public class ObjectiveManager : MonoBehaviour
 
         //produce
         ///cheese
-        if (numCheese == quest.numCheeseNeeded)
+        if (numCheeseOwned == quest.numCheeseNeeded)
         {
             cheeseComplete = true;
         }
@@ -150,7 +150,7 @@ public class ObjectiveManager : MonoBehaviour
             cheeseComplete = false;
         }
         //eggs
-        if (numEggs == quest.numEggsNeeded)
+        if (numEggsOwned == quest.numEggsNeeded)
         {
             eggsComplete = true;
         }
@@ -159,7 +159,7 @@ public class ObjectiveManager : MonoBehaviour
             eggsComplete = false;
         }
         //milk
-        if (numMilk == quest.numMilkNeeded)
+        if (numMilkOwned == quest.numMilkNeeded)
         {
             milkComplete = true;
         }

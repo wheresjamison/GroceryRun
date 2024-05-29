@@ -22,31 +22,31 @@ public class InteractableItem : Interactable
         switch (name)
         {
             case "Apple":
-                objective.numApples += 1;
+                objective.numApplesOwned += 1;
                 break;
             case "Banana":
-                objective.numBananas += 1;
+                objective.numBananasOwned += 1;
                 break;
             case "Watermelon":
-                objective.numWatermelons += 1;
+                objective.numWatermelonsOwned += 1;
                 break;
             case "Onion":
-                objective.numOnions += 1;
+                objective.numOnionsOwned += 1;
                 break;
             case "Potato":
-                objective.numPotatos += 1;
+                objective.numPotatosOwned += 1;
                 break;
             case "Corn":
-                objective.numCorn += 1;
+                objective.numCornOwned += 1;
                 break;
             case "Egg":
-                objective.numEggs += 1;
+                objective.numEggsOwned += 1;
                 break;
             case "Cheese":
-                objective.numCheese += 1;
+                objective.numCheeseOwned += 1;
                 break;
             case "Milk":
-                objective.numMilk += 1;
+                objective.numMilkOwned += 1;
                 break;
             default:
                 break;
