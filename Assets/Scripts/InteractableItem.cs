@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractableItem : Interactable
@@ -19,7 +20,6 @@ public class InteractableItem : Interactable
     {
         //same as door example
         Debug.Log("Interacted with " + item.name);
-
         AddItemToInventory(item.name);
         Debug.Log(item.name + " added to inventory");
         game.Shopping();

@@ -11,15 +11,10 @@ public class GameManager : MonoBehaviour
     public string winTextReturned;
     private PlayerUI ui;
     private Checker checker;
-
-    //for IO reader
-    /// <summary>
-    /// this is for the status screen
-    /// </summary>
     public string[] statusArray;
     public string status;
-    ///
-    //for IO reader
+    //private NumberSender ns;
+    //public GameObject wglup;
 
     void Start()
     {
@@ -27,8 +22,8 @@ public class GameManager : MonoBehaviour
         checker = FindAnyObjectByType<Checker>();
         winText = new string[] { "", "Perfect Run! Great Delivery", "Nice Try! Incorrect submission", "Pathetic Delivery! Nothing was right!" };
         statusArray = new string[] { "Jamison has Arrived at the store", "Jamison has recieved your order", "Jamison is Shopping for you", "Jamison is on his way", "Jamison has Delivered", "Jamison has given up" };
+        //ns = FindAnyObjectByType<NumberSender>();
     }
-
     void Update()
     {
         if (gameIsActive)
@@ -45,8 +40,6 @@ public class GameManager : MonoBehaviour
             ui.winText.text = winText[checker.index];
         }
     }
-
-
     void CreateText()
     {
         string path = Application.dataPath + "/ioComm.txt";
@@ -61,36 +54,42 @@ public class GameManager : MonoBehaviour
     {
         status = statusArray[1];
         Debug.Log(status);
-        CreateText();
+        //CreateText();
+        //ns.SenderNumberToJS(1);
     }
     public void AtStore()
     {
         status = statusArray[0];
         Debug.Log(status);
-        CreateText();
+        //CreateText();
+        //ns.SenderNumberToJS(2);
     }
     public void Shopping()
     {
         status = statusArray[2];
         Debug.Log(status);
-        CreateText();
+        //CreateText();
+        //ns.SenderNumberToJS(3);
     }
     public void OTW()
     {
         status = statusArray[3];
         Debug.Log(status);
-        CreateText();
+        //CreateText();
+        //ns.SenderNumberToJS(4);
     }
     public void Delivered()
     {
         status = statusArray[4];
         Debug.Log(status);
-        CreateText();
+        //CreateText();
+        //ns.SenderNumberToJS(5);
     }
     public void GivenUp()
     {
         status = statusArray[5];
         Debug.Log(status);
-        CreateText();
+        //CreateText();
+        //ns.SenderNumberToJS(6);
     }
 }

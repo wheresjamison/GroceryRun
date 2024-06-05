@@ -61,7 +61,7 @@ public class QuestManager : MonoBehaviour
         //from left to right, top to bottom
         addresses = new string[] { "1001 WestField", "1002 WestField", "1003 WestField", "1004 WestField", "1005 WestField", "1006 WestField", "1007 WestField", "1008 WestField", "1009 WestField", "1010 WestField", "1011 WestField", "1012 WestField", "1013 WestField", "1014 WestField", "1015 WestField", "1016 WestField", "1017 WestField", "1018 WestField", "1019 WestField", "1020 WestField", "1021 WestField", "1022 WestField", "1023 WestField", "1024 WestField", "1025 WestField", "1026 WestField", "1027 WestField", "1028 WestField", "1029 WestField", "1030 WestField", "1031 WestField", "1032 WestField", "1033 WestField", "1111 NorthPark", "1112 NorthPark", "1113 NorthPark", "1114 NorthPark", "1115 NorthPark", "1116 NorthPark", "1117 NorthPark", "1118 NorthPark", "1119 NorthPark", "1201 CenterPlace", "1202 CenterPlace", "1203 CenterPlace", "2101 SouthWestern", "2102 SouthWestern", "2103 SouthWestern", "1001 MustardComplex #1 ", "1001 MustardComplex #2 ", "1001 MustardComplex #3", "1002 MayoManor #1", "1002 MayoManor #2", "1002 MayoManor #3", "4000 KetchupCanyon #1", "4000 KetchupCanyon #2", "4000 KetchupCanyon #3", "4001 SaltStreet #1", "4001 SaltStreet #2", "4001 SaltStreet #3", "5000 PepperPalace #1", "5000 PepperPalace #3", "5000 PepperPalace #3" };
         assignedAddressIndex = addresses.Length; //65
-        Debug.Log(addresses.Length.ToString());
+        Debug.Log("houses " + addresses.Length.ToString());
 
     }
 

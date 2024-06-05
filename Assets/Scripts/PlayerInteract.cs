@@ -12,12 +12,15 @@ public class PlayerInteract : MonoBehaviour
     private LayerMask mask;
     private PlayerUI playerUI;
     private InputManager inputManager;
+    private Animator rarm;
+
     // Start is called before the first frame update
     void Start()
     {
         cam = GetComponent<PlayerLook>().cam;
         playerUI = GetComponent<PlayerUI>();
         inputManager = GetComponent<InputManager>();
+        rarm = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,8 @@ public class PlayerInteract : MonoBehaviour
                 if (inputManager.onFoot.Interact.triggered)
                 {
                     interactable.BaseInteract();
+                    rarm.SetTrigger("GoGrab");
+                    rarm.SetTrigger("GoIdle");
                 }
             }
         }
